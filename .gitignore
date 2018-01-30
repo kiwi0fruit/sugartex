@@ -1,0 +1,16 @@
+*.egg-info
+*.whl
+*.pyc
+build/
+dist/
+__pycache__/
+htmlcov/
+
+.coverage
+
+.RData
+.Rhistory
+
+*.html
+*.pdf
+_build/
