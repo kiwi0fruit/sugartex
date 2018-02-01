@@ -449,9 +449,13 @@ class BinCentrGreedy:
         ('¦⠛', r'\begin{{array}}{}¦{}\end{{array}}'),
         ('¦#', r'\begin{{aligned}}{}¦{}\end{{aligned}}'),
         ('¦˽^{l}', r'{{\begin{{subarray}}{{l}}{}¦{}\end{{subarray}}}}'),
+        ('¦⎵^{l}', r'{{\begin{{subarray}}{{l}}{}¦{}\end{{subarray}}}}'),
         ('¦˽^{c}', r'{{\begin{{subarray}}{{c}}{}¦{}\end{{subarray}}}}'),
+        ('¦⎵^{c}', r'{{\begin{{subarray}}{{c}}{}¦{}\end{{subarray}}}}'),
         ('¦˽^{r}', r'{{\begin{{subarray}}{{r}}{}¦{}\end{{subarray}}}}'),
+        ('¦⎵^{r}', r'{{\begin{{subarray}}{{r}}{}¦{}\end{{subarray}}}}'),
         ('¦˽', r'{{\substack{{{}¦{}}}}}'),
+        ('¦⎵', r'{{\substack{{{}¦{}}}}}'),
     ])
 
     def spec(self) -> list:
@@ -494,6 +498,7 @@ class BinCentrOps:
                'regex': r'(?<!\\)(√) *'}),  # can have superscript arguments (no `\` escapes!)
         ('⎴', {'pat': r'\overset{{{1}}}{{{0}}}'}),
         ('˽', {'pat': r'\underset{{{1}}}{{{0}}}'}),
+        ('⎵', {'pat': r'\underset{{{1}}}{{{0}}}'}),
         ('¦^{c}', {'pat': r'\binom{{{}}}{{{}}}', 'pref': _choose_pref, 'postf': _choose_postf}),
         ('¦^{ct}', {'pat': r'\tbinom{{{}}}{{{}}}', 'pref': _choose_pref, 'postf': _choose_postf}),  # (n¦ᶜᵗm)
         ('¦^{cd}', {'pat': r'\dbinom{{{}}}{{{}}}', 'pref': _choose_pref, 'postf': _choose_postf}),
