@@ -31,11 +31,17 @@ Highly recommended to install [Atom editor](https://atom.io/) as it's the best f
 
 Atom is perfect for Unicode rich texts. But you need to install some fonts first. Recommended font fallback chains:
 
-* **Open Mono** (that is a Roboto Mono remix for SugarTeX): `'Open Mono', 'Noto Sans CJK TC Thin', monospace`,
+* For **Consolas**: `Consolas, 'TeX Gyre Schola Math monospacified for Consolas', 'Symbola monospacified for Consolas', 'Noto Sans CJK TC', monospace`. Download:
+    * Consolas can be installed together with [Microsoft PowerPoint Viewer](https://www.microsoft.com/en-us/download/details.aspx?id=13) till April, 2018. SHA256: 249473568EBA7A1E4F95498ACBA594E0F42E6581ADD4DEAD70C1DFB908A09423,
+    * [TeX Gyre Schola Math monospacified for Consolas](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/TeXGyreScholaMath_monospacified_for_Consolas.ttf?raw=true),
+    * [Symbola monospacified for Consolas](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_Consolas.ttf?raw=true),
+* For **Roboto Mono**: `"Roboto Mono", 'DejaVu LGC Sans Mono', 'TeX Gyre Schola Math monospacified for DejaVu Sans Mono', 'Symbola monospacified for DejaVu Sans Mono', 'Noto Sans CJK TC', monospace`. Download:
+    * [Roboto Mono](https://github.com/google/fonts/tree/master/apache/robotomono),
+    * [DejaVu LGC Sans Mono](https://dejavu-fonts.github.io/Download.html) (Download DejaVu LGC version),
+    * [TeX Gyre Schola Math monospacified for DejaVu Sans Mono](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/TeXGyreScholaMath_monospacified_for_DejaVuSansMono.ttf?raw=true),
+    * [Symbola monospacified for DejaVu Sans Mono](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_DejaVuSansMono.ttf?raw=true),
 
-[Open Mono](https://github.com/kiwi0fruit/open-mono) can be installed from [this 7z archive](https://github.com/kiwi0fruit/open-mono/blob/master/open_mono.7z). [Noto fonts](https://www.google.com/get/noto/) can also be freely downloaded (if you need `'Noto Sans CJK TC Thin'`).
-
-I used monospacified fonts with the help of [monospacifier.py](https://github.com/cpitclaudel/monospacifier). If you do not like Roboto Mono you can pick there monospacified versions for other monospace fonts.
+[Noto fonts](https://www.google.com/get/noto/) can also be freely downloaded (if you need CJK support). TC is Traditional Chinese but it can also be SC, JP, KR. I used monospacified fonts with the help of [monospacifier.py](https://github.com/cpitclaudel/monospacifier). If you do not like Consolas/Inconsolata you can pick there monospacified versions for other monospace fonts.
 
 
 ### SugarTeX Completions for Atom
