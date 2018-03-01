@@ -35,8 +35,8 @@ Atom is perfect for Unicode rich texts. But you need to install some fonts first
     * Consolas can be installed together with [Microsoft PowerPoint Viewer](https://www.microsoft.com/en-us/download/details.aspx?id=13) till April, 2018. SHA256: 249473568EBA7A1E4F95498ACBA594E0F42E6581ADD4DEAD70C1DFB908A09423,
     * [TeX Gyre Schola Math monospacified for Consolas](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/TeXGyreScholaMath_monospacified_for_Consolas.ttf?raw=true),
     * [Symbola monospacified for Consolas](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_Consolas.ttf?raw=true),
-* For **Roboto Mono**: `"Roboto Mono", 'DejaVu Sans Mono', 'TeX Gyre Schola Math monospacified for DejaVu Sans Mono', 'Symbola monospacified for DejaVu Sans Mono', 'Noto Sans CJK TC', monospace`. Download:
-    * [Roboto Mono](https://github.com/google/fonts/tree/master/apache/robotomono),
+* For **Roboto Mono**: `"Open Mono", 'DejaVu Sans Mono', 'TeX Gyre Schola Math monospacified for DejaVu Sans Mono', 'Symbola monospacified for DejaVu Sans Mono', 'Noto Sans CJK TC', monospace`. Download:
+    * [Open Mono](https://github.com/kiwi0fruit/open-fonts/tree/master/Fonts) that is simply a renamed monospacified version of Roboto Mono (italic in Roboto Mono has different width),
     * [DejaVu Sans Mono](https://dejavu-fonts.github.io/Download.html),
     * [TeX Gyre Schola Math monospacified for DejaVu Sans Mono](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/TeXGyreScholaMath_monospacified_for_DejaVuSansMono.ttf?raw=true),
     * [Symbola monospacified for DejaVu Sans Mono](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_DejaVuSansMono.ttf?raw=true),
