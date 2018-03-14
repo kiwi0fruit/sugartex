@@ -36,8 +36,9 @@ Atom is perfect for Unicode rich texts. But you need to install some fonts first
     * [DejaVu Sans Mono monospacified for Consolas](https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/DejaVuSansMono_monospacified_for_Consolas.ttf?raw=true)
     * [TeX Gyre Schola Math monospacified for Consolas](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/TeXGyreScholaMath_monospacified_for_Consolas.ttf?raw=true),
     * [Symbola monospacified for Consolas](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_Consolas.ttf?raw=true),
-* For **Roboto Mono**: `"Open Mono", 'DejaVu Sans Mono', 'TeX Gyre Schola Math monospacified for DejaVu Sans Mono', 'Symbola monospacified for DejaVu Sans Mono', 'Noto Sans CJK TC', monospace`. Download:
+* For **Roboto Mono**: `'Open Mono', 'Noto Sans Mono', 'DejaVu Sans Mono', 'TeX Gyre Schola Math monospacified for DejaVu Sans Mono', 'Symbola monospacified for DejaVu Sans Mono', 'Noto Sans CJK TC', monospace`. Download:
     * [Open Mono](https://github.com/kiwi0fruit/open-fonts/tree/master/Fonts) that is simply a renamed monospacified version of Roboto Mono (italic in Roboto Mono has different width),
+    * [Noto Sans Mono](https://github.com/kiwi0fruit/open-fonts/raw/master/Fonts/NotoSansMono-hinted.7z?raw=true),
     * [DejaVu Sans Mono](https://dejavu-fonts.github.io/Download.html),
     * [TeX Gyre Schola Math monospacified for DejaVu Sans Mono](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/TeXGyreScholaMath_monospacified_for_DejaVuSansMono.ttf?raw=true),
     * [Symbola monospacified for DejaVu Sans Mono](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_DejaVuSansMono.ttf?raw=true),
