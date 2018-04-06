@@ -31,19 +31,20 @@ Highly recommended to install [Atom editor](https://atom.io/) as it's the best f
 
 Atom is perfect for Unicode rich texts. But you need to install some fonts first. Recommended font fallback chains:
 
-* For **Consolas**: `Consolas, 'DejaVu Sans Mono monospacified for Consolas', 'TeX Gyre Schola Math monospacified for Consolas', 'Symbola monospacified for Consolas', 'Noto Sans CJK TC', monospace`. Download:
+* For **Consolas**: `Consolas, 'STI0 Two Mat0 monospacified for Consola0', 'DejaVu Sans Mono monospacified for Consolas', 'Symbola monospacified for Consolas', 'Noto Sans CJK TC', monospace`. Download:
     * Consolas can be installed together with [Microsoft PowerPoint Viewer](https://www.microsoft.com/en-us/download/details.aspx?id=13) till April, 2018. SHA256: 249473568EBA7A1E4F95498ACBA594E0F42E6581ADD4DEAD70C1DFB908A09423. But note that it's license says that "You may use the software only to view and print files created with Microsoft Office software. You may not use the software for any other purpose." so you might not be even allowed to print Consolas font text via Chrome browser,
+    * [STI0 Two Mat0 monospacified for Consola0](https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/STI0TwoMat0_monospacified_for_Consola0.ttf?raw=true) (STIX Two Math for Consolas),
     * [DejaVu Sans Mono monospacified for Consolas](https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/DejaVuSansMono_monospacified_for_Consolas.ttf?raw=true)
-    * [TeX Gyre Schola Math monospacified for Consolas](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/TeXGyreScholaMath_monospacified_for_Consolas.ttf?raw=true),
     * [Symbola monospacified for Consolas](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_Consolas.ttf?raw=true),
-* For **Roboto Mono**: `'Open Mono', 'Noto Sans Mono', 'DejaVu Sans Mono', 'TeX Gyre Schola Math monospacified for DejaVu Sans Mono', 'Symbola monospacified for DejaVu Sans Mono', 'Noto Sans CJK TC', monospace`. Download:
+* For **Roboto Mono**: `'Open Mono', 'Noto Sans Mono', 'IBM Plex Mono', 'STI0 Two Mat0 monospacified for Robot0 Mono', 'DejaVu Sans Mono', 'Symbola monospacified for DejaVu Sans Mono', 'Noto Sans CJK TC', monospace`. Download:
     * [Open Mono](https://github.com/kiwi0fruit/open-fonts/tree/master/Fonts) that is simply a renamed monospacified version of Roboto Mono (italic in Roboto Mono has different width),
-    * [Noto Sans Mono](https://github.com/kiwi0fruit/open-fonts/raw/master/Fonts/NotoSansMono-hinted.7z?raw=true),
+    * [Noto Sans Mono](https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/NotoSansMono-hinted.7z?raw=true),
+    * [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono). [Download](https://github.com/google/fonts/tree/master/ofl/ibmplexmono),
+    * [STI0 Two Mat0 monospacified for Robot0 Mono](https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/STI0TwoMat0_monospacified_for_Robot0Mono.ttf?raw=true) (STIX Two Math for Roboto Mono),
     * [DejaVu Sans Mono](https://dejavu-fonts.github.io/Download.html),
-    * [TeX Gyre Schola Math monospacified for DejaVu Sans Mono](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/TeXGyreScholaMath_monospacified_for_DejaVuSansMono.ttf?raw=true),
     * [Symbola monospacified for DejaVu Sans Mono](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_DejaVuSansMono.ttf?raw=true),
 
-[Noto fonts](https://www.google.com/get/noto/) can also be freely downloaded (if you need CJK support). TC is Traditional Chinese but it can also be SC, JP, KR. I used monospacified fonts with the help of [monospacifier.py](https://github.com/cpitclaudel/monospacifier). If you do not like Consolas/Inconsolata you can pick there monospacified versions for other monospace fonts.
+[Noto fonts](https://www.google.com/get/noto/) can also be freely downloaded (if you need CJK support). TC is Traditional Chinese but it can also be SC, JP, KR. I used monospacified fonts with the help of [monospacifier.py](https://github.com/cpitclaudel/monospacifier). If you do not like Consolas/Roboto Mono you can pick there monospacified versions for other monospace fonts.
 
 
 ### SugarTeX Completions for Atom
