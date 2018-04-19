@@ -4,16 +4,13 @@ SugarTeX is a more readable LaTeX language extension and a transcompiler to LaTe
 
 This is a PDF version of the SugarTeX documentation. See original markdown version [here](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md) (Unicode characters will not have intended look there).
 
-#### TODO
-
-Сделать, чтобы все ссылки на этот документ были на pdf версию. Ко всем привести примеры до и после (матрицы, дроби и т.д.). Add more examples at the end.
-
 
 # Contents
 
 * [Command line interfaces](#command-line-interfaces)
 * [Tweaking SugarTeX](#tweaking-sugartex)
 * [SugarTeX replacements and operators](#sugartex-replacements-and-operators)
+    * [Preprocess](#preprocess)
     * [Brackets](#brackets)
     * [Simple pre-replacements](#simple-pre-replacements)
     * [Superscripts and Subscripts](#superscripts-and-subscripts)
@@ -121,8 +118,12 @@ Attributes of instance of `SugarTeX` class can be changed. See them in defining 
 * `.escapes`
 
 
-
 # SugarTeX replacements and operators
+
+## Preprocess
+
+In default use-case SugarTeX first preprocesses text replacing `ˎ` with `$`.
+
 
 ## Brackets
 
@@ -147,12 +148,40 @@ Instead of `(` and `)` can be other brackets:
 * `⌊` → `\lfloor` and `⌋` → `\rfloor` (left/right floor U+230A/U+230B),
 * `⌈` → `\lceil` and `⌉` → `\rceil` (left/right ceiling U+2308/U+2309.
 
+***SugarTeX Completions for Atom***:
+
+Use these shortcuts for fast Unicode typing in Atom:
+
+* `˳` ← `\&`,
+* `˳` ← `\_o\small`,
+* `ˌ` ← `\_'\small`.
+* `│` ← `\|`,
+* `‖` ← `\||`,
+* `˱` ← `\_<`,
+* `˲` ← `\_>`,
+* `˱˲` ← `\_<>`,
+* `⟨` ← `\<\big`,
+* `⟩` ← `\>\big`,
+* `⟨⟩` ← `\<>\big`,
+* `⌊` ← `\lfloor`,
+* `⌋` ← `\rfloor`,
+* `⌈` ← `\lceil`,
+* `⌉` ← `\rceil`.
+
 
 ## Simple pre-replacements
 
 * `∛` → `3√` (cube root U+221B),
 * `∜` → `4√` (fourth root U+221C),
 * ` ` → `\,` (thin space U+2009).
+
+***SugarTeX Completions for Atom***:
+
+* ` ` ← `\,` (thin space),
+* ` ` ← `\],[` (thin space),
+* `√` ← `\^1/2`,
+* `∛` ← `\^1/3`,
+* `∜` ← `\^1/4`.
 
 
 ## Superscripts and Subscripts
@@ -161,18 +190,25 @@ Groups of superscript Unicode characters like `¹²³` are replaced with `^{123}
 
 * `\¹²³√` → `¹23√` (square root U+221A),
 * `\¹²³` → `¹^{23}`,
-* `¹²³` → `^{123}`.
+* `¹²³ᵃᵇᶜ` → `^{123abc}`.
 
 Same is for groups of subscript Unicode characters:
 
 * `\₁₂₃` → `₁_{23}`.
-* `₁₂₃` → `_{123}`.
+* `₁₂₃ₖₗₘ` → `_{123klm}`.
 
 List of supported characters can be found in the beginning of the SugarTeX [source code](https://github.com/kiwi0fruit/pandoctools/blob/master/pandoctools/sugartex/sugartex.py).
 
 **UPDATE**
 
 Now `‹›` and `˹˺` from [Styles with special brackets](#styles-with-special-brackets) end up inside `_{}`/`^{}`, like: `A‹ₐₑ›` → `A_{‹ae›}`. Does not work if there are non-subscript/superscript characters inside `‹›`/`˹˺`, like: `A‹ᵃe›` → `A‹^{a}e›`.
+
+***SugarTeX Completions for Atom***:
+
+* `₁` ← `\_1`,
+* `ₐ` ← `\_a`,
+* `¹` ← `\^1`,
+* `ᵃ` ← `\^a`.
 
 
 ## Regular expressions pre-replacements
@@ -203,7 +239,19 @@ Supported big operators:
 * `⨌` → `\iiiint`,
 * `∮` → `\oint`.
 
-*Who knows what I was thinking about by adding them here instead of Regular expressions replacements...*
+Who knows what I was thinking about by adding them here instead of Regular expressions replacements...
+
+***SugarTeX Completions for Atom***:
+
+* `⢈` ← `\:\big`,
+* `⠰` ← `\:\small`,
+* `∑` ← `\sum`,
+* `∏` ← `\prod`,
+* `∫` ← `\int`,
+* `∬` ← `\iint`,
+* `∭` ← `\iiint`,
+* `⨌` ← `\iiiint`,
+* `∮` ← `\oint`.
 
 
 ## Prefix unary operators
@@ -238,6 +286,13 @@ List of available styles:
 * `{⠋A}` / `{⠛A}` → `\mathbf{A}` (**matrix bold notation**,  
   braille pattern dots-124/dots-1245 U+280B/U+281B).
 
+***SugarTeX Completions for Atom***:
+
+* ` ⃗` ← `\^->`,
+* `⠘` ← `\^:`,
+* `⠛` ← `\^::`,
+* `⠋` ← `\^:.\rot`.
+
 
 ### Styles with special brackets
 
@@ -248,6 +303,13 @@ List of available styles:
   single left/right-pointing angle quotation mark U+2039/U+203A),
 * `˹text˺` → `\mathrm{text}` (**math regular**,  
   modifier letter begin/end high tone U+02F9/U+02FA).
+
+***SugarTeX Completions for Atom***:
+
+* `‹` ← `\<`,
+* `›` ← `\>`,
+* `‹›` ← `\<>`,
+* `˹˺` ← `\^r\small`.
 
 
 ### Greedy prefix unary operators
@@ -263,6 +325,11 @@ List of available styles:
 
 SugarTeX finds non-escaped `{⋲` or `˱⋲` first then searches for non-escaped `}` or `˲` that is not inside `{}` or `˱˲` – SugarTeX counts opening and closing `{}˱˲` (`˱˲` would later be replaced with `{}` so both are counted together).
 
+***SugarTeX Completions for Atom***:
+
+* `⋲` ← `\-e`,
+* `⋲` ← `\-E`.
+
 
 ### Standard prefix unary operators
 
@@ -276,6 +343,16 @@ SugarTeX finds non-escaped `{⋲` or `˱⋲` first then searches for non-escaped
   (leftwards arrow U+2190).
 
 SugarTeX finds non-escaped `⧼ *` first (for example) then searches for a place before non-escaped `}`, `˲`, space, newline or end of the string that is not inside `{}` or `˱˲` – SugarTeX counts opening and closing `{}˱˲` (`˱˲` would later be replaced with `{}` so both are counted together).
+
+***SugarTeX Completions for Atom***:
+
+* `⧼` ← `\<\big2`,
+* `⧽` ← `\>\big2`,
+* `⧼⧽` ← `\<>\big2`,
+* `👻` ← `\ghost`,
+* `⎴` ← `\^]\rot`,
+* `→` ← `\->`,
+* `←` ← `\<-`.
 
 
 ## Postfix unary operators
@@ -423,29 +500,37 @@ Instead of `ˡ` (left) it can also be `ᶜ` (center) or `ʳ` (right).
 
 ### Standard center binary operators
 
-#### TODO
+SugarTeX finds non-escaped binary operator separator (like `∕`) first then:
 
-regex_pat = r'(?<!\\) *({}) *'  # language=PythonRegExp
-_choose_pref = r'(?<!\\)\('  # language=PythonRegExp
-_choose_postf = r'(?<!\\)\)'  # language=PythonRegExp
-_sfrac_pref = r'(?:^|(?<=\n)|(?<=^[ ˱{])|(?<=[^\\][ ˱{]))(?:[˱{]([^˱˲{\}]*[^\\˱˲{\}])[˲\}])?'
-ops = OrderedDict([
-    ('∕^{d}', {'pat': r'\dfrac{{{}}}{{{}}}'}),  # a∕ᵈb
-    ('∕^{t}', {'pat': r'\tfrac{{{}}}{{{}}}'}),
-    ('∕^{c}', {'pat': r'\cfrac{{{}}}{{{}}}'}),
-    ('∕^{xs}', {'pat': lambda t: r'\genfrac{{}}{{}}{{{}}}{{3}}{{{}}}{{{}}}'.format(
-                       t[0] if (t[0] is not None) else '', t[1], t[2]), 'pref': _sfrac_pref}),
-    ('∕^{s}', {'pat': lambda t: r'\genfrac{{}}{{}}{{{}}}{{2}}{{{}}}{{{}}}'.format(
-                      t[0] if (t[0] is not None) else '', t[1], t[2]), 'pref': _sfrac_pref}),
-    ('∕', {'pat': r'\frac{{{}}}{{{}}}'}),
-    ('√', {'pat': r'\sqrt[{}]{{{}}}',  # language=PythonRegExp
-           'regex': r'(?<!\\)(√) *'}),  # can have superscript arguments (no `\` escapes!)
-    ('⎴', {'pat': r'\overset{{{1}}}{{{0}}}'}),
-    ('˽', {'pat': r'\underset{{{1}}}{{{0}}}'}),
-    ('¦^{c}', {'pat': r'\binom{{{}}}{{{}}}', 'pref': _choose_pref, 'postf': _choose_postf}),
-    ('¦^{ct}', {'pat': r'\tbinom{{{}}}{{{}}}', 'pref': _choose_pref, 'postf': _choose_postf}),  # (n¦ᶜᵗm)
-    ('¦^{cd}', {'pat': r'\dbinom{{{}}}{{{}}}', 'pref': _choose_pref, 'postf': _choose_postf}),
-])_
+* searches for a place after non-escaped `{`, `˱`, space, newline or start of the string that is not inside `{}` or `˱˲`,
+* searches for a place before non-escaped `}`, `˲`, space, newline or end of the string that is not inside `{}` or `˱˲`,
+* this way it finds two arguments (SugarTeX counts opening and closing `{}˱˲`, `˱˲` would later be replaced with `{}` so both are counted together).
+
+#### Fractions
+
+* `x∕y` → `\frac{x}{y}` (division slash U+2215),
+* `1+x∕y` → `\frac{1+x}{y}`,
+* `1 + {x + z}∕y` → `1 + \frac{{x + z}}{y}`,
+* `x∕ᵈy` → `\dfrac{x}{y}`,
+* `x∕ᵗy` → `\tfrac{x}{y}`,
+* `x∕ᶜy` → `\cfrac{x}{y}`,
+* `x∕ˢy` and `x∕ˣˢy` are the same as `x∕ᵗy` but smaller and use `\genfrac` macros. Bar thickness can be set this way: `{0.5px}x∕ˢy`.
+
+#### Roots, overset, underset
+
+* `√64` → `\sqrt[]{64}` (square root U+221A),
+* `⁶√64` → `\sqrt[6]{64}`,
+* `1 + ⁶√64` → `1 + \sqrt[6]{64}`,
+* `˹lim˺˽x→0` / `˹lim˺⎵x→0` → `\underset{x→0}{˹lim˺}` (modifier letter shelf U+02FD / bottom square bracket U+23B5),
+* `{x + … + x}⏞⎴{k ‹times›}` → `\overset{{k ‹times›}}{{x + … + x}⏞}` (top square bracket U+23B4).
+
+#### Binomial coefficients
+
+* `(i¦ᶜn)` → `\binom{i}{n}`,
+* `(i¦ᶜᵈn)` → `\dbinom{i}{n}` (display),
+* `(i¦ᶜᵗn)` → `\tbinom{i}{n}` (text).
+
+In this case SugarTeX finds non-escaped binary operator separator `¦ᶜ` first then searches for `(` and `)`. Other stop symbols do not work.
 
 
 ## Regular expressions loop replacements
@@ -518,3 +603,8 @@ $$
 where ${\mathbf{B}},\,{\mathbf{E}},\,{\mathbf{j}}:\,ℝ^{4} → ℝ^{3}$ --
 vector functions of the form
 $(t,x,y,z) ↦ {\mathbf{f}}(t,x,y,z),\,{\mathbf{f}} = (f_{\mathrm{x}}, f_{\mathrm{y}}, f_{\mathrm{z}})$.
+
+
+# TODO
+
+Сделать, чтобы все ссылки на этот документ были на pdf версию. Ко всем привести примеры до и после (матрицы, дроби и т.д.). Add more examples at the end.
