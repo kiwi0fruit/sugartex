@@ -4,7 +4,9 @@ SugarTeX is a more readable LaTeX language extension and a transcompiler to LaTe
 
 This is a PDF version of the SugarTeX documentation. See original markdown version [here](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md) (Unicode characters will not have intended look there).
 
-#### TODO сделать, чтобы все ссылки на этот документ были на pdf версию. Ко всем привести примеры до и после (матрицы, дроби и т.д.).
+#### TODO
+
+Сделать, чтобы все ссылки на этот документ были на pdf версию. Ко всем привести примеры до и после (матрицы, дроби и т.д.). Add more examples at the end.
 
 
 # Contents
@@ -25,6 +27,7 @@ This is a PDF version of the SugarTeX documentation. See original markdown versi
     * [Postfix unary operators](#postfix-unary-operators)
     * [Center binary operators](#center-binary-operators)
         * [Matrices](#matrices)
+        * [General fractions without bars](#general-fractions-without-bars)
         * [Greedy center binary operators](#greedy-center-binary-operators)
         * [Standard center binary operators](#standard-center-binary-operators)
     * [Regular expressions loop replacements](#regular-expressions-loop-replacements)
@@ -251,6 +254,13 @@ List of available styles:
 
 * `{⋲ smth}` / `˱⋲ smth˲` → `\begin{cases} smth\end{cases}` (**piecewise**, element of with long horizontal stroke U+22F2).
 
+```
+ˎˎ
+  ˳|x|˳ = {⋲  x˳ ‹if› x≥0 ¦
+             -x˳ ‹if› x<0 }
+ˎˎ
+```
+
 SugarTeX finds non-escaped `{⋲` or `˱⋲` first then searches for non-escaped `}` or `˲` that is not inside `{}` or `˱˲` – SugarTeX counts opening and closing `{}˱˲` (`˱˲` would later be replaced with `{}` so both are counted together).
 
 
@@ -305,58 +315,116 @@ When combining **one-character** postfix unary operators with styles the order i
 
 Family of `*matrix` amsmath macros is given by `¦⠋` operator:
 
-`˱[a b ¦⠋ c d]˲` →  
- `\begin{bmatrix}a b¦c d\end{bmatrix}`  
+`˱[a ˳b ¦⠋ c ˳d]˲` →  
+ `\begin{bmatrix}a ˳b¦c ˳d\end{bmatrix}` →  
+ `\begin{bmatrix}a &b\\c &d\end{bmatrix}`
 
 All brackets:
 
-* `˱a b ¦⠋ c d˲` → `...matrix...` (**no brackets**,  
+* `˱a ˳b ¦⠋ c ˳d˲` → `...matrix...` (**no brackets**,  
   modifier letter low left/right arrowhead U+02F1/U+02F2),
-* `{a b ¦⠋ c d}` → `...Bmatrix...` (**curly brackets**),
-* `˱(a b ¦⠋ c d)˲`/`{(a b ¦⠋ c d)}` → `...pmatrix...`,
-* `˱[a b ¦⠋ c d]˲`/`{[a b ¦⠋ c d]}` → `...bmatrix...`,
-* `˱│a b ¦⠋ c d│˲`/`{│a b ¦⠋ c d│}`/  
-  `˱|a b ¦⠋ c d|˲`/`{|a b ¦⠋ c d|}` → `...vmatrix...`  
+* `{a ˳b ¦⠋ c ˳d}` → `...Bmatrix...` (**curly brackets**),
+* `˱(a ˳b ¦⠋ c ˳d)˲`/`{(a ˳b ¦⠋ c ˳d)}` → `...pmatrix...`,
+* `˱[a ˳b ¦⠋ c ˳d]˲`/`{[a ˳b ¦⠋ c ˳d]}` → `...bmatrix...`,
+* `˱│a ˳b ¦⠋ c ˳d│˲`/`{│a ˳b ¦⠋ c ˳d│}`/  
+  `˱|a ˳b ¦⠋ c ˳d|˲`/`{|a ˳b ¦⠋ c ˳d|}` → `...vmatrix...`  
   (box drawings light vertical U+2502, for math in markdown tables),
-* `˱‖a b ¦⠋ c d‖˲`/`{‖a b ¦⠋ c d‖}` → `...Vmatrix...`  
+* `˱‖a ˳b ¦⠋ c ˳d‖˲`/`{‖a ˳b ¦⠋ c ˳d‖}` → `...Vmatrix...`  
   (double vertical line U+2016).
 
-### Matrices
+SugarTeX finds non-escaped binary operator separator `¦⠋` first then:
 
-#### TODO
+* searches for a place after non-escaped `{` or `˱` that is not inside `{}` or `˱˲`,
+* searches for a place before non-escaped `}` or `˲` that is not inside `{}` or `˱˲`,
+* it also figures out bracket type properly,
+* this way it finds two arguments (SugarTeX counts opening and closing `{}˱˲`, `˱˲` would later be replaced with `{}` so both are counted together).
 
-frac_dic = {
-    '(': '(', ')': ')',
-    '[': '[', ']': ']',
-    '{': r'\{', '}': r'\}',
-    '│': '|', '|': '|',
-    '‖': r'\Vert',
-    '˱': '', '˲': '',
-}
-frac_ops = ['¦⠘', '¦⠃']  # ⠘ br45 (right upper 2), ⠃ br12 (left upper 2)
-frac_styles = OrderedDict([('^{d}', '0'), ('^{t}', '1'), ('^{xs}', '3'), ('^{s}', '2'), ('', '')])
-frac_pat = r'\genfrac{{{0}}}{{{3}}}{{0pt}}{{<>}}{{{1}}}{{{2}}}'
+
+### General fractions without bars
+
+Fractions works almost the same as Matrices - they add brackets and stack arguments: first arg is atop of the second arg. But with dome differences:
+
+* they use `¦⠘` or `¦⠃` as a separator (braille pattern dots-45 U+2818 / dots-12 U+2803),
+* cannot handle more than one line break (so two args only),
+* they use `\genfrac` amsmath macro,
+* they can have size modifiers after `¦⠘`:
+    * `ᵈ`/`^{d}` - display mode,
+    * `ᵗ`/`^{t}` - text mode,
+    * `ˢ`/`^{s}` - smaller,
+    * `ˣˢ`/`^{xs}` - extra small,
+* left and right brackets can be different.
+
+Examples:
+
+* `˱(x¦⠘ᵗy)˲`,
+* `˱[x¦⠘y]˲`,
+* `{x¦⠘y}` (**curly brackets**),
+* `˱x¦⠘y˲` (**no brackets**, modifier letter low left/right arrowhead U+02F1/U+02F2),
+* `˱|x¦⠘y|˲`, `˱│x¦⠘y│˲` (box drawings light vertical U+2502, for math in markdown tables),
+* `˱‖x¦⠘ᵈy‖˲` (double vertical line U+2016).
+
+Arguments search algorithm is the same as for matrices.
 
 
 ### Greedy center binary operators
 
-#### TODO
-pref = r'(?<!\\)[˱{]'  # language=PythonRegExp
-postf = r'(?<!\\)[˲\}]'
-ops = OrderedDict([  # should have only one slot
-    ('¦⠛^{t}', r'\begin{{smallmatrix}}{}¦{}\end{{smallmatrix}}'),
-    ('¦⠛', r'\begin{{array}}{}¦{}\end{{array}}'),
-    ('¦#', r'\begin{{aligned}}{}¦{}\end{{aligned}}'),
-    ('¦˽^{l}', r'{{\begin{{subarray}}{{l}}{}¦{}\end{{subarray}}}}'),
-    ('¦˽^{c}', r'{{\begin{{subarray}}{{c}}{}¦{}\end{{subarray}}}}'),
-    ('¦˽^{r}', r'{{\begin{{subarray}}{{r}}{}¦{}\end{{subarray}}}}'),
-    ('¦˽', r'{{\substack{{{}¦{}}}}}'),
-])
+Arguments search algorithm is the same as for matrices (except it now does not have brackets).
+
+1) `˱smth1 ¦⠛ᵗ smth2˲` →  
+ `\begin{smallmatrix}smth1¦smth2\end{smallmatrix}`,  
+(Braille Pattern Dots-1245 U+281B).
+
+```
+ˎ˳˳(˱a ˳b ¦⠛ᵗ c ˳d˲)˳˳ˎ
+```
+
+2) `˱smth1 ¦⠛ smth2˲` →  
+ `\begin{array}smth1¦smth2\end{array}`,  
+(Braille Pattern Dots-1245 U+281B).
+
+```
+ˎˎ
+˳[˱                        ˱cccc|c˲
+    x₁₁ ˳x₁₂ ˳x₁₃ ˳… ˳x₁ₙ  ¦⠛
+    x₂₁ ˳x₂₂ ˳x₂₃ ˳… ˳x₂ₙ  ¦
+     ⋮  ˳ ⋮  ˳ ⋮  ˳⋱ ˳ ⋮   ¦
+    xₚ₁ ˳xₚ₂ ˳xₚ₃ ˳… ˳xₚₙ ˲]˳
+ˎˎ
+```
+
+3) `˱smth1 ¦# smth2˲` →  
+ `\begin{aligned}smth1¦smth2\end{aligned}`,
+
+```
+ˎˎ
+  ˳|x|˳ = ˳{˱ x˳ ‹if› x≥0  ¦#
+             -x˳ ‹if› x<0  ˲ ˲˳
+ˎˎ
+```
+
+4) `˱smth1 ¦˽ smth2˲` / `˱smth1 ¦⎵ smth2˲` →  
+ `\substack{smth1¦smth2}`,  
+(modifier letter shelf U+02FD / bottom square bracket U+23B5)
+
+```
+ˎˎ ∑ⁿˍ{0≤i≤N ¦˽ 0≤j≤M} (ij)³ ˎˎ
+```
+
+5) `˱smth1 ¦˽ˡ smth2˲` / `˱smth1 ¦⎵ˡ smth2˲` →  
+ `\begin{subarray}{l}smth1¦smth2\end{subarray}`,  
+(modifier letter shelf U+02FD / bottom square bracket U+23B5)
+
+```
+ˎˎ ∑ⁿˍ{0≤i≤N ¦˽ˡ 0≤j≤M} (ij)³ ˎˎ
+```
+
+Instead of `ˡ` (left) it can also be `ᶜ` (center) or `ʳ` (right).
 
 
 ### Standard center binary operators
 
 #### TODO
+
 regex_pat = r'(?<!\\) *({}) *'  # language=PythonRegExp
 _choose_pref = r'(?<!\\)\('  # language=PythonRegExp
 _choose_postf = r'(?<!\\)\)'  # language=PythonRegExp
@@ -427,7 +495,7 @@ are escapable with `\`.
 
 # Examples
 
-```md
+```
 ˎˎ
 ˱∇ × [ ⃗B] - 1∕c ∂[ ⃗E]∕∂t ˳= 4π∕c [ ⃗j] ¦#
                ∇ ⋅ [ ⃗E]\ ˳= 4πρ       ¦
@@ -450,44 +518,3 @@ $$
 where ${\mathbf{B}},\,{\mathbf{E}},\,{\mathbf{j}}:\,ℝ^{4} → ℝ^{3}$ --
 vector functions of the form
 $(t,x,y,z) ↦ {\mathbf{f}}(t,x,y,z),\,{\mathbf{f}} = (f_{\mathrm{x}}, f_{\mathrm{y}}, f_{\mathrm{z}})$.
-
-
-#### TODO more examples
-
-‹› = \<  \> = single left/right-pointing angle quotation mark
-˱˲ = \_<  \_> = modifier letter low left/right arrowhead
- ⃗ = \^-> = combining right arrow above
- ⃑ = \^--> = combining right harpoon above
-ˍ = \_ = modifier letter low macron
-⣤ = \_:: = braille pattern dots-3678
-⠛ = \^:: = braille pattern dots-1245
-⠘ = braille pattern dots-45 (right upper 2)
-⠃ = braille pattern dots-12 (left upper 2)
-⢈ = \:b = braille pattern dots-48
-⡁ = braille pattern dots-17
-⠆ = braille pattern dots-23
-⠰ = \:s = braille pattern dots-56
- ⃔ = \^^ = combining anticlockwise arrow above
-ˎ = \_` = modifier letter low grave accent
-ˌ = \_'s = modifier letter low vertical line
-⋲ = -E = element of with long horizontal stroke
-˄ = \^bb = modifier letter up arrowhead
-ˆ = \^ss = modifier letter circumflex accent
-˽ = \__ = modifier letter shelf
-‖ = \|| = double vertical line
-│ = \| = box drawings light vertical
-ˊˋ = \`m (modif letter) \` (modif letter) = modifier letter acute/grave accent
-\]em/3[ = three-per-em space
-👻 = \ghost
-˚ = \^os = ring above
-ˈ = \'s = modifier letter vertical line
-¦ = \\ = \|/2 = broken bar
-┆ = \|/3 = box drawings light triple dash vertical
-˹˺ = \^rs = modifier letter begin/end high tone
-\__- = combining macron below
-\^ + symbol = modifier letter small / superscript
-\_ + symbol = subscript
-
-↕ = v|^ = up down arrow
-
-√ = \sqrt
