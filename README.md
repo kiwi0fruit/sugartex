@@ -37,9 +37,9 @@ Atom is perfect for Unicode rich texts. But you need to install some fonts first
     * [DejaVu Sans Mono monospacified for Consolas](https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/DejaVuSansMono_monospacified_for_Consolas.ttf?raw=true)
     * [Symbola monospacified for Consolas](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_Consolas.ttf?raw=true),
 * For **Roboto Mono**: `'Open Mono', 'Noto Sans Mono', 'IBM Plex Mono', 'STI0 Two Mat0 monospacified for Robot0 Mono', 'DejaVu Sans Mono', 'Symbola monospacified for DejaVu Sans Mono', 'Noto Sans CJK TC', monospace`. Download:
-    * [Open Mono](https://github.com/kiwi0fruit/open-fonts/tree/master/Fonts) that is simply a renamed monospacified version of Roboto Mono (italic in Roboto Mono has different width),
+    * [Open Mono](https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/OpenMono.7z?raw=true) that is simply a renamed monospacified version of Roboto Mono (italic in Roboto Mono has different width than regular),
     * [Noto Sans Mono](https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/NotoSansMono-hinted.7z?raw=true),
-    * [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono). [Download](https://github.com/google/fonts/tree/master/ofl/ibmplexmono),
+    * [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono). [Download](https://fonts.google.com/specimen/IBM+Plex+Mono), [Download](https://github.com/google/fonts/tree/master/ofl/ibmplexmono),
     * [STI0 Two Mat0 monospacified for Robot0 Mono](https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/STI0TwoMat0_monospacified_for_Robot0Mono.ttf?raw=true) (STIX Two Math for Roboto Mono),
     * [DejaVu Sans Mono](https://dejavu-fonts.github.io/Download.html),
     * [Symbola monospacified for DejaVu Sans Mono](https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_DejaVuSansMono.ttf?raw=true),
