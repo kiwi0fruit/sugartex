@@ -356,6 +356,7 @@ SugarTeX finds non-escaped `⧼ *` first (for example) then searches for a place
 * `⧽` ← `\>\big2`,
 * `⧼⧽` ← `\<>\big2`,
 * `👻` ← `\ghost`,
+* `⎴` ← `\^^`,
 * `⎴` ← `\^]\rot`,
 * `→` ← `\->`,
 * `←` ← `\<-`.
@@ -547,6 +548,7 @@ Instead of `ˡ` (left) it can also be `ᶜ` (center) or `ʳ` (right).
 ***SugarTeX Completions for Atom***:
 
 * `⠛` ← `\^::`,
+* `˽` ← `\__`,
 * `˽` ← `\_]\rot`,
 * `⎵` ← `\_]\rot2`,
 * `¦` ← `\\`,
@@ -590,8 +592,10 @@ SugarTeX finds non-escaped binary operator separator (like `∕`) first then:
 
 ***SugarTeX Completions for Atom***:
 
+* `˽` ← `\__`,
 * `˽` ← `\_]\rot`,
 * `⎵` ← `\_]\rot2`,
+* `⎴` ← `\^^`,
 * `⎴` ← `\^]\rot`,
 * `∕` ← `\/`,
 * `√` ← `\^1/2`,
