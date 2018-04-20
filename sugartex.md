@@ -2,7 +2,7 @@
 
 SugarTeX is a more readable LaTeX language extension and a transcompiler to LaTeX.
 
-This is a PDF version of the SugarTeX documentation. See original markdown version [here](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md) (Unicode characters will not have intended look there).
+See [PDF version of this documentation](sugartex.pdf) - it nicely renders all Unicode characters and LaTeX example at the end. See original markdown version [here](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md).
 
 
 # Contents
@@ -10,7 +10,7 @@ This is a PDF version of the SugarTeX documentation. See original markdown versi
 * [Command line interfaces](#command-line-interfaces)
 * [Tweaking SugarTeX](#tweaking-sugartex)
 * [SugarTeX replacements and operators](#sugartex-replacements-and-operators)
-    * [Preprocess](#preprocess)
+    * [Math delimiters](#math-delimiters)
     * [Brackets](#brackets)
     * [Simple pre-replacements](#simple-pre-replacements)
     * [Superscripts and Subscripts](#superscripts-and-subscripts)
@@ -120,9 +120,15 @@ Attributes of instance of `SugarTeX` class can be changed. See them in defining 
 
 # SugarTeX replacements and operators
 
-## Preprocess
+Many replacements use amsmath macros.
 
-In default use-case SugarTeX first preprocesses text replacing `ˎ` with `$`.
+## Math delimiters
+
+In default use-case SugarTeX first preprocesses text replacing `ˎ` with `$` (modifier letter low grave accent U+02CE). Can be escaped: `\ˎ`
+
+***SugarTeX Completions for Atom***:
+
+* `ˎ` ← <code>\\\_\`</code>.
 
 
 ## Brackets
@@ -288,7 +294,7 @@ List of available styles:
 
 ***SugarTeX Completions for Atom***:
 
-* ` ⃗` ← `\^->`,
+* <code> ⃗</code> ← `\^->`,
 * `⠘` ← `\^:`,
 * `⠛` ← `\^::`,
 * `⠋` ← `\^:.\rot`.
@@ -361,7 +367,7 @@ SugarTeX finds non-escaped `⧼ *` first (for example) then searches for a place
   combining right arrow above U+20D7),
 * `a x ⃑` → `a \overrightarrow{x }` (**arrow above**,  
   combining right harpoon above U+20D1),
-* `a x^` → `a \widehat{x}` (modifier letter up arrowhead U+02C4)
+* `a x^` → `a \widehat{x}`
   **warning**: works only if the next character after `^` is `}`, `˲`, newline or end of the string,
 * `a xˆ` → `a \hat{x}` (modifier letter circumflex accent U+02C6),
 * `a x¯` → `a \bar{x}` (macron U+00AF),    
@@ -385,12 +391,29 @@ When combining **one-character** postfix unary operators with styles the order i
 
 `[ᵇx ⃗]` → `\vec{\mathbf{x }}`
 
+***SugarTeX Completions for Atom***:
+
+* <code> ⃗</code> ← `\^->`,
+* <code> ⃑</code> ← `\^->\har`,
+* `ˆ` ← `\^\small`,
+* `¯` ← `\^_\small` (macron),
+* `¯` ← `\^-\small` (macron),
+* `‾` ← `\^_` (overline),
+* `˙` ← `\^.`,
+* `¨` ← `\^..`,
+* `⏞` ← `\^}\rot`,
+* `⏟` ← `\_}\rot`,
+* `ˍ` ← `\_`,
+* `⧼` ← `\<\big2`,
+* `⧽` ← `\>\big2`,
+* `⧼⧽` ← `\<>\big2`.
+
 
 ## Center binary operators
 
 ### Matrices
 
-Family of `*matrix` amsmath macros is given by `¦⠋` operator:
+Family of `*matrix` amsmath macros is given by `¦⠋` operator (broken bar U+00A6, braille pattern dots-124 U+280B):
 
 `˱[a ˳b ¦⠋ c ˳d]˲` →  
  `\begin{bmatrix}a ˳b¦c ˳d\end{bmatrix}` →  
@@ -416,12 +439,25 @@ SugarTeX finds non-escaped binary operator separator `¦⠋` first then:
 * it also figures out bracket type properly,
 * this way it finds two arguments (SugarTeX counts opening and closing `{}˱˲`, `˱˲` would later be replaced with `{}` so both are counted together).
 
+***SugarTeX Completions for Atom***:
+
+* `˳` ← `\&`,
+* `˳` ← `\_o\small`,
+* `│` ← `\|`,
+* `‖` ← `\||`,
+* `˱` ← `\_<`,
+* `˲` ← `\_>`,
+* `˱˲` ← `\_<>`,
+* `¦` ← `\\`,
+* `¦` ← `\|/2`,
+* `⠋` ← `\^:.\rot`.
+
 
 ### General fractions without bars
 
 Fractions works almost the same as Matrices - they add brackets and stack arguments: first arg is atop of the second arg. But with dome differences:
 
-* they use `¦⠘` or `¦⠃` as a separator (braille pattern dots-45 U+2818 / dots-12 U+2803),
+* they use `¦⠘` or `¦⠃` as a separator (broken bar U+00A6, braille pattern dots-45 U+2818 / dots-12 U+2803),
 * cannot handle more than one line break (so two args only),
 * they use `\genfrac` amsmath macro,
 * they can have size modifiers after `¦⠘`:
@@ -441,6 +477,17 @@ Examples:
 * `˱‖x¦⠘ᵈy‖˲` (double vertical line U+2016).
 
 Arguments search algorithm is the same as for matrices.
+
+***SugarTeX Completions for Atom***:
+
+* `│` ← `\|`,
+* `‖` ← `\||`,
+* `˱` ← `\_<`,
+* `˲` ← `\_>`,
+* `˱˲` ← `\_<>`,
+* `¦` ← `\\`,
+* `¦` ← `\|/2`,
+* `⠘` ← `\^:`.
 
 
 ### Greedy center binary operators
@@ -465,7 +512,7 @@ Arguments search algorithm is the same as for matrices (except it now does not h
     x₁₁ ˳x₁₂ ˳x₁₃ ˳… ˳x₁ₙ  ¦⠛
     x₂₁ ˳x₂₂ ˳x₂₃ ˳… ˳x₂ₙ  ¦
      ⋮  ˳ ⋮  ˳ ⋮  ˳⋱ ˳ ⋮   ¦
-    xₚ₁ ˳xₚ₂ ˳xₚ₃ ˳… ˳xₚₙ ˲]˳
+    xₚ₁ ˳xₚ₂ ˳xₚ₃ ˳… ˳xₚₙ  ˲]˳
 ˎˎ
 ```
 
@@ -497,14 +544,16 @@ Arguments search algorithm is the same as for matrices (except it now does not h
 
 Instead of `ˡ` (left) it can also be `ᶜ` (center) or `ʳ` (right).
 
+***SugarTeX Completions for Atom***:
+
+* `⠛` ← `\^::`,
+* `˽` ← `\_]\rot`,
+* `⎵` ← `\_]\rot2`,
+* `¦` ← `\\`,
+* `¦` ← `\|/2`.
+
 
 ### Standard center binary operators
-
-SugarTeX finds non-escaped binary operator separator (like `∕`) first then:
-
-* searches for a place after non-escaped `{`, `˱`, space, newline or start of the string that is not inside `{}` or `˱˲`,
-* searches for a place before non-escaped `}`, `˲`, space, newline or end of the string that is not inside `{}` or `˱˲`,
-* this way it finds two arguments (SugarTeX counts opening and closing `{}˱˲`, `˱˲` would later be replaced with `{}` so both are counted together).
 
 #### Fractions
 
@@ -522,7 +571,8 @@ SugarTeX finds non-escaped binary operator separator (like `∕`) first then:
 * `⁶√64` → `\sqrt[6]{64}`,
 * `1 + ⁶√64` → `1 + \sqrt[6]{64}`,
 * `˹lim˺˽x→0` / `˹lim˺⎵x→0` → `\underset{x→0}{˹lim˺}` (modifier letter shelf U+02FD / bottom square bracket U+23B5),
-* `{x + … + x}⏞⎴{k ‹times›}` → `\overset{{k ‹times›}}{{x + … + x}⏞}` (top square bracket U+23B4).
+* `{x + … + x}⏞⎴{k ‹times›}` →  
+`\overset{{k ‹times›}}{{x + … + x}⏞}` (top square bracket U+23B4).
 
 #### Binomial coefficients
 
@@ -531,6 +581,22 @@ SugarTeX finds non-escaped binary operator separator (like `∕`) first then:
 * `(i¦ᶜᵗn)` → `\tbinom{i}{n}` (text).
 
 In this case SugarTeX finds non-escaped binary operator separator `¦ᶜ` first then searches for `(` and `)`. Other stop symbols do not work.
+
+SugarTeX finds non-escaped binary operator separator (like `∕`) first then:
+
+* searches for a place after non-escaped `{`, `˱`, space, newline or start of the string that is not inside `{}` or `˱˲`,
+* searches for a place before non-escaped `}`, `˲`, space, newline or end of the string that is not inside `{}` or `˱˲`,
+* this way it finds two arguments (SugarTeX counts opening and closing `{}˱˲`, `˱˲` would later be replaced with `{}` so both are counted together).
+
+***SugarTeX Completions for Atom***:
+
+* `˽` ← `\_]\rot`,
+* `⎵` ← `\_]\rot2`,
+* `⎴` ← `\^]\rot`,
+* `∕` ← `\/`,
+* `√` ← `\^1/2`,
+* `¦` ← `\\`,
+* `¦` ← `\|/2`.
 
 
 ## Regular expressions loop replacements
@@ -557,7 +623,19 @@ Nothing. But can be tweaked.
 * `↕ᵈ` → `\displaystyle`,
 * `↕ᵗ` → `\textstyle`,
 * `↕ˢ` → `\scriptstyle`,
-* `↕ˣˢ` → `\scriptscriptstyle`,
+* `↕ˣˢ` → `\scriptscriptstyle`.
+
+***SugarTeX Completions for Atom***:
+
+* `¦` ← `\\`,
+* `¦` ← `\|/2`,
+* `˳` ← `\&`,
+* `˳` ← `\_o\small`,
+* `˱` ← `\_<`,
+* `˲` ← `\_>`,
+* `˱˲` ← `\_<>`,
+* `ˍ` ← `\_`,
+* `↕` ← `\<->\rot`.
 
 
 ## Escapable characters
@@ -604,7 +682,9 @@ where ${\mathbf{B}},\,{\mathbf{E}},\,{\mathbf{j}}:\,ℝ^{4} → ℝ^{3}$ --
 vector functions of the form
 $(t,x,y,z) ↦ {\mathbf{f}}(t,x,y,z),\,{\mathbf{f}} = (f_{\mathrm{x}}, f_{\mathrm{y}}, f_{\mathrm{z}})$.
 
+(you can see it in the [PDF version of this documentation](sugartex.pdf)).
 
 # TODO
 
-Сделать, чтобы все ссылки на этот документ были на pdf версию. Ко всем привести примеры до и после (матрицы, дроби и т.д.). Add more examples at the end.
+* Add examples to every section,
+* Add more examples here at the end.

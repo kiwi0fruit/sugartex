@@ -12,5 +12,4 @@ htmlcov/
 .Rhistory
 
 *.html
-*.pdf
 _build/

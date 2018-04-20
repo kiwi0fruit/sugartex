@@ -56,9 +56,7 @@ apm install kiwi0fruit/sugartex-completions
 ```
 (it's incompatible with [latex-completions](https://atom.io/packages/latex-completions) package).
 
-In the future it would have a proper documentation and will be published as a normal Atom package.
-
-#### TODO ↑
+In the [SugarTeX documentation](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md) appropriate shortcuts for SugarTeX Completions for Atom are given.
 
 
 ## Usage examples
