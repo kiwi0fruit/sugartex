@@ -49,12 +49,7 @@ Atom is perfect for Unicode rich texts. But you need to install some fonts first
 
 ### SugarTeX Completions for Atom
 
-[Atom package](https://github.com/kiwi0fruit/sugartex-completions) for easy typing SugarTeX. At the moment it can be installed via:
-
-```sh
-apm install kiwi0fruit/sugartex-completions --production
-```
-(it's incompatible with [latex-completions](https://atom.io/packages/latex-completions) package).
+Install [SugarTeX Completions](https://github.com/kiwi0fruit/sugartex-completions) package for easy typing SugarTeX and lots of other Unicode characters. (it's incompatible with [latex-completions](https://atom.io/packages/latex-completions) package).
 
 In the [SugarTeX documentation](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md) appropriate shortcuts for SugarTeX Completions for Atom are given.
 
