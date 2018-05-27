@@ -7,6 +7,10 @@ See [SugarTeX documentation](https://github.com/kiwi0fruit/sugartex/blob/master/
 
 ## Install
 
+Install as part of [Pandoctools](https://github.com/kiwi0fruit/pandoctools) - convenient interface and works out of the box.
+
+Or install:
+
 ```sh
 pip install sugartex
 ```

@@ -10,6 +10,12 @@ documentation <https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md>`_
 Install
 -------
 
+Install as part of
+`Pandoctools <https://github.com/kiwi0fruit/pandoctools>`__ - convenient
+interface and works out of the box.
+
+Or install:
+
 .. code:: sh
 
     pip install sugartex
@@ -39,39 +45,69 @@ the best for markdown.
 Atom is perfect for Unicode rich texts. But you need to install some
 fonts first. Recommended font fallback chains:
 
--  **Open Mono** (that is a Roboto Mono remix for SugarTeX):
-   ``'Open Mono', 'Noto Sans CJK TC Thin', monospace``,
+-  For **Consolas**:
+   ``Consolas, 'STI0 Two Mat0 monospacified for Consola0', 'DejaVu Sans Mono monospacified for Consolas', 'Symbola monospacified for Consolas', 'Noto Sans CJK TC', monospace``.
+   Download:
 
-`Open Mono <https://github.com/kiwi0fruit/open-mono>`__ can be installed
-from `this 7z
-archive <https://github.com/kiwi0fruit/open-mono/blob/master/open_mono.7z>`__.
+   -  Consolas can be installed together with `Microsoft PowerPoint
+      Viewer <https://www.microsoft.com/en-us/download/details.aspx?id=13>`__
+      till April, 2018. SHA256:
+      249473568EBA7A1E4F95498ACBA594E0F42E6581ADD4DEAD70C1DFB908A09423.
+      But note that it’s license says that “You may use the software
+      only to view and print files created with Microsoft Office
+      software. You may not use the software for any other purpose.” so
+      you might not be even allowed to print Consolas font text via
+      Chrome browser,
+   -  `STI0 Two Mat0 monospacified for
+      Consola0 <https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/STI0TwoMat0_monospacified_for_Consola0.ttf?raw=true>`__
+      (STIX Two Math for Consolas),
+   -  `DejaVu Sans Mono monospacified for
+      Consolas <https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/DejaVuSansMono_monospacified_for_Consolas.ttf?raw=true>`__
+   -  `Symbola monospacified for
+      Consolas <https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_Consolas.ttf?raw=true>`__,
+
+-  For **Roboto Mono**:
+   ``'Open Mono', 'Noto Sans Mono', 'IBM Plex Mono', 'STI0 Two Mat0 monospacified for Robot0 Mono', 'DejaVu Sans Mono', 'Symbola monospacified for DejaVu Sans Mono', 'Noto Sans CJK TC', monospace``.
+   Download:
+
+   -  `Open
+      Mono <https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/OpenMono.7z?raw=true>`__
+      that is simply a renamed monospacified version of Roboto Mono
+      (italic in Roboto Mono has different width than regular),
+   -  `Noto Sans
+      Mono <https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/NotoSansMono-hinted.7z?raw=true>`__,
+   -  `IBM Plex
+      Mono <https://fonts.google.com/specimen/IBM+Plex+Mono>`__.
+      `Download <https://fonts.google.com/specimen/IBM+Plex+Mono>`__,
+      `Download <https://github.com/google/fonts/tree/master/ofl/ibmplexmono>`__,
+   -  `STI0 Two Mat0 monospacified for Robot0
+      Mono <https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/STI0TwoMat0_monospacified_for_Robot0Mono.ttf?raw=true>`__
+      (STIX Two Math for Roboto Mono),
+   -  `DejaVu Sans
+      Mono <https://dejavu-fonts.github.io/Download.html>`__,
+   -  `Symbola monospacified for DejaVu Sans
+      Mono <https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_DejaVuSansMono.ttf?raw=true>`__,
+
 `Noto fonts <https://www.google.com/get/noto/>`__ can also be freely
-downloaded (if you need ``'Noto Sans CJK TC Thin'``).
-
-I used monospacified fonts with the help of
+downloaded (if you need CJK support). TC is Traditional Chinese but it
+can also be SC, JP, KR. I used monospacified fonts with the help of
 `monospacifier.py <https://github.com/cpitclaudel/monospacifier>`__. If
-you do not like Roboto Mono you can pick there monospacified versions
-for other monospace fonts.
+you do not like Consolas/Roboto Mono you can pick there monospacified
+versions for other monospace fonts.
 
 SugarTeX Completions for Atom
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Atom package <https://github.com/kiwi0fruit/sugartex-completions>`__
-for easy typing SugarTeX. At the moment it can be installed via:
-
-.. code:: sh
-
-    apm install kiwi0fruit/sugartex-completions
-
-(it’s incompatible with
+Install `SugarTeX
+Completions <https://atom.io/packages/sugartex-completions>`__ package
+for easy typing SugarTeX and lots of other Unicode characters. (it’s
+incompatible with
 `latex-completions <https://atom.io/packages/latex-completions>`__
 package).
 
-In the future it would have a proper documentation and will be published
-as a normal Atom package.
-
-TODO ↑
-^^^^^^
+In the `SugarTeX
+documentation <https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md>`__
+appropriate shortcuts for SugarTeX Completions for Atom are given.
 
 Usage examples
 --------------
