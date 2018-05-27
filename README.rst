@@ -2,7 +2,8 @@ SugarTeX
 ========
 
 SugarTeX is a more readable LaTeX language extension and transcompiler
-to LaTeX.
+to LaTeX. Designed to be uses instead of ``$formula$`` insertions to
+markdown.
 
 See `SugarTeX
 documentation <https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md>`__.
@@ -111,6 +112,8 @@ appropriate shortcuts for SugarTeX Completions for Atom are given.
 
 Usage examples
 --------------
+
+Example of input to output conversion is at the end of [this PDF].
 
 Windows:
 
