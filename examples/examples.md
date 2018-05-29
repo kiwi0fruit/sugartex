@@ -122,11 +122,11 @@ where ˎ[ ⃗B], [ ⃗E], [ ⃗j]: ℝ⁴ → ℝ³ˎ – vector functions
 
 ```
 \ˎ\ˎ ˹erf˺(x) = 1∕√π ∫₋ₓˣ e^{-t²} dt \ˎ\ˎ
-\ˎ\ˎ f⁽²⁾(0) = f''(0) = ˳˱d²f∕dx²|˳ˍ{x=0} \ˎ\ˎ
+\ˎ\ˎ f⁽²⁾(0) = f''(0) = ˳˱d²f∕dx²|˳ₓ₌₀ \ˎ\ˎ
 Text \ˎ˳˳(˱a ˳b ¦⠛ᵗ c ˳d˲)˳˳\ˎ and some more text.
 ```
 ˎˎ ˹erf˺(x) = 1∕√π ∫₋ₓˣ e^{-t²} dt ˎˎ
-ˎˎ f⁽²⁾(0) = f''(0) = ˳˱d²f∕dx²|˳ˍ{x=0} ˎˎ
+ˎˎ f⁽²⁾(0) = f''(0) = ˳˱d²f∕dx²|˳ₓ₌₀ ˎˎ
 Text ˎ˳˳(˱a ˳b ¦⠛ᵗ c ˳d˲)˳˳ˎ and some more text.
 
 ----
