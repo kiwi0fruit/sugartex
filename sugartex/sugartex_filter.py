@@ -614,6 +614,8 @@ class SugarTeX:
         ('˱', '{'),
         ('˲', '}'),
         ('ˍ', '_'),
+        ('`', '\\'),
+        ('ˋ', '\\'),  # modifier letter grave accent
         ('↕^{d}', r'\displaystyle'),
         ('↕^{t}', r'\textstyle'),
         ('↕^{s}', r'\scriptstyle'),

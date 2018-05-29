@@ -8,6 +8,25 @@ markdown.
 See `SugarTeX
 documentation <https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md>`__.
 
+I use Markdown with Python code blocks for document programming via
+`Pandoctools <https://github.com/kiwi0fruit/pandoctools>`__ (like
+R-Markdown).
+
+Both Python and Markdown are very readable languages. Unfortunately
+LaTeX is not like this. So I wrote SugaTeX extension+transpiler that is
+highly readable. In order to achieve this it heavily uses Unicode so
+that SugarTeX install instructions even have recommended monospace font
+fallback chains. And more: `SugarTeX
+Completions <#sugartex-completions-for-atom>`__ Atom package helps write
+all that Unicode in a moment.
+
+I am trying to incorporate LaTeX into .md using the Markdown Philosophy
+of “you should write something that’s readable as plain text, without
+compilation, also”.
+
+Examples of input to output conversion see in `this
+PDF <https://github.com/kiwi0fruit/sugartex/blob/master/examples/examples.pdf?raw=true>`__.
+
 Install
 -------
 
@@ -26,7 +45,7 @@ install dependencies first:
 
 .. code:: sh
 
-    conda install -c defaults -c conda-forge "pandoc>=2.0,<2.1" pyyaml future shutilwhich
+    conda install -c defaults -c conda-forge "pip>=10.0.1" "pandoc>=2.2.1" pyyaml future shutilwhich
 
 Also can install from GitHub:
 

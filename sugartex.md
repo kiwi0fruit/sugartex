@@ -2,7 +2,7 @@
 
 SugarTeX is a more readable LaTeX language extension and a transcompiler to LaTeX.
 
-See [PDF version of this documentation](sugartex.pdf) - it nicely renders all Unicode characters and LaTeX example at the end. See original markdown version [here](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md).
+See [PDF version of this documentation](sugartex.pdf?raw=true) - it nicely renders all Unicode characters and LaTeX example at the end. See original markdown version [here](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md).
 
 
 # Contents
@@ -11,6 +11,7 @@ See [PDF version of this documentation](sugartex.pdf) - it nicely renders all Un
 * [Tweaking SugarTeX](#tweaking-sugartex)
 * [SugarTeX replacements and operators](#sugartex-replacements-and-operators)
     * [Math delimiters](#math-delimiters)
+    * [New escape character](#new-escape-character)
     * [Brackets](#brackets)
     * [Simple pre-replacements](#simple-pre-replacements)
     * [Superscripts and Subscripts](#superscripts-and-subscripts)
@@ -129,6 +130,15 @@ In default use-case SugarTeX first preprocesses text replacing `ˎ` with `$` (mo
 ***SugarTeX Completions for Atom***:
 
 * `ˎ` ← <code>\\\_\`</code>.
+
+
+## New escape character
+
+In SugarTeX the default escape character is `\`. But it's a special symbol in LaTeX. In cases when `\` would work as escaping character you can use <code>\`</code> or `ˋ` (modifier letter grave accent). At the end it will be replaced with `\`.
+
+***SugarTeX Completions for Atom***:
+
+* `ˋ` ← <code>\\\`\\alt</code> (modifier letter grave accent).
 
 
 ## Brackets
@@ -619,6 +629,8 @@ Nothing. But can be tweaked.
 * `˳` → `&` (modifier letter low ring U+02F3, this should be after brackets and other `˳` replacements),
 * `˱` → `{` and `˲` → `}` (modifier letter low left/right arrowhead U+02F1/U+02F2),
 * `ˍ` → `_` (modifier letter low macron U+02CD),
+* <code>\`</code> → `\`,
+* `ˋ` → `\` (modifier letter grave accent U+02CB),
 * `↕^{d}` → `\displaystyle` (up down arrow U+2195),
 * `↕^{t}` → `\textstyle`,
 * `↕^{s}` → `\scriptstyle`,
@@ -639,6 +651,7 @@ Nothing. But can be tweaked.
 * `˲` ← `\_>`,
 * `˱˲` ← `\_<>`,
 * `ˍ` ← `\_`,
+* `ˋ` ← <code>\\\`\\alt</code> (modifier letter grave accent).
 * `↕` ← `\<->\rot`.
 
 
@@ -686,9 +699,11 @@ where ${\mathbf{B}},\,{\mathbf{E}},\,{\mathbf{j}}:\,ℝ^{4} → ℝ^{3}$ --
 vector functions of the form
 $(t,x,y,z) ↦ {\mathbf{f}}(t,x,y,z),\,{\mathbf{f}} = (f_{\mathrm{x}}, f_{\mathrm{y}}, f_{\mathrm{z}})$.
 
-(you can see it in the [PDF version of this documentation](sugartex.pdf)).
+(you can see it in the [PDF version of this documentation](sugartex.pdf?raw=true)).
 
-# TODO
+You can find more SugarTeX examples [**here**](https://github.com/kiwi0fruit/sugartex/tree/master/examples).
+
+
+## TODO
 
 * Add examples to every section,
-* Add more examples here at the end.
