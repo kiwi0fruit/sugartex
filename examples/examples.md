@@ -48,21 +48,21 @@ where ˎ[ ⃗B], [ ⃗E], [ ⃗j]: ℝ⁴ → ℝ³ˎ – vector functions
 ----
 
 ```
-\ˎ\ˎ \def\B{
+\ˎ\ˎ ˋdefˋB{
 ˱[ ax₀ + by₁ ¦⠋
    ax₁ + by₂ ¦
        ⋮     ¦
    ax_{N-1} + by_{N-1} ]˲
 }¦
-\B = a[ ⃗x] + b[ ⃗y] \ˎ\ˎ
+ˋB = a[ ⃗x] + b[ ⃗y] \ˎ\ˎ
 ```
-ˎˎ \def\B{
+ˎˎ ˋdefˋB{
 ˱[ ax₀ + by₁ ¦⠋
    ax₁ + by₂ ¦
        ⋮     ¦
    ax_{N-1} + by_{N-1} ]˲
 }¦
-\B = a[ ⃗x] + b[ ⃗y] ˎˎ
+ˋB = a[ ⃗x] + b[ ⃗y] ˎˎ
 
 ----
 
