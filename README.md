@@ -10,7 +10,7 @@ Both Python and Markdown are very readable languages. Unfortunately LaTeX is not
 
 I am trying to incorporate LaTeX into .md using the Markdown Philosophy of "you should write something that's readable as plain text, without compilation, also".
 
-Example of input to output conversion is at the end of [this PDF](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.pdf?raw=true).
+Examples of input to output conversion see in [this PDF](https://github.com/kiwi0fruit/sugartex/blob/master/examples/examples.pdf?raw=true).
 
 
 ## Install
