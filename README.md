@@ -26,7 +26,7 @@ pip install sugartex
 If you use conda package manager (Anaconda/Miniconda) then you can install dependencies first:
 
 ```sh
-conda install -c defaults -c conda-forge "pandoc>=2.0,<2.1" pyyaml future shutilwhich
+conda install -c defaults -c conda-forge "pip>=10.0.1" "pandoc>=2.2.1" pyyaml future shutilwhich
 ```
 
 Also can install from GitHub:
