@@ -1,8 +1,16 @@
 # SugarTeX
 
-SugarTeX is a more readable LaTeX language extension and transcompiler to LaTeX. Designed to be used instead of `$formula$` insertions to markdown.
+SugarTeX is a more readable LaTeX language extension and transcompiler to LaTeX. Designed to be used instead of `$formula$` insertions to markdown. 
 
 See [SugarTeX documentation](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md).
+
+I use Markdown with Python code blocks for document programming via [Pandoctools](https://github.com/kiwi0fruit/pandoctools) (like R-Markdown).
+
+Both Python and Markdown are very readable languages. Unfortunately LaTeX is not like this. So I wrote SugaTeX extension+transpiler that is highly readable. In order to achieve this it heavily uses Unicode so that SugarTeX install instructions even have recommended monospace font fallback chains. And more: [SugarTeX Completions](#sugartex-completions-for-atom) Atom package helps write all that Unicode in a moment.
+
+I am trying to incorporate LaTeX into .md using the Markdown Philosophy of "you should write something that's readable as plain text, without compilation, also".
+
+Example of input to output conversion is at the end of [this PDF](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.pdf?raw=true).
 
 
 ## Install
