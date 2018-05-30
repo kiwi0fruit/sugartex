@@ -18,9 +18,17 @@ def sugartex_preprocess(source: str) -> str:
 sugartex = SugarTeX(delay=True)
 
 
-def stex(string):
+def stex2(string):
     return sugartex_preprocess(re.sub(
         r'((?<=[^\\]ˎ)|(?<=^ˎ))[^ˎ]*(?=ˎ)',
+        lambda m: sugartex.replace(m.group(0)),
+        string
+    ))
+
+
+def stex(string):
+    return sugartex_preprocess(re.sub(
+        r'((?<=[^\\][ˎ$])|(?<=^[ˎ$]))[^ˎ$]*(?=[ˎ$])',
         lambda m: sugartex.replace(m.group(0)),
         string
     ))
