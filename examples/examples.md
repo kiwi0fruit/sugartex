@@ -136,7 +136,7 @@ prefix unary operator `→⎴`:
 \ˎ\ˎ f: x →⎴{‹arrow map›} ˽i x² \ˎ\ˎ
 ```
 ˎˎ f: x →⎴{‹arrow map›} ˽i x² ˎˎ
-postfix unary operator `⎴`:
+center binary operator `⎴`:
 ```
 \ˎ\ˎ f: x → ⎴‹arrow map› ˽i x² \ˎ\ˎ
 ```
