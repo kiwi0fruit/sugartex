@@ -129,7 +129,8 @@ In default use-case SugarTeX first preprocesses text replacing `ˎ` with `$` (mo
 
 ***SugarTeX Completions for Atom***:
 
-* `ˎ` ← <code>\\\_\`</code>.
+* `ˎ` ← <code>\\\_\`</code>,
+* `ˎ` ← `\$`.
 
 
 ## New escape character
@@ -675,35 +676,4 @@ are escapable with `\`.
 
 # Examples
 
-```
-ˎˎ
-˱∇ × [ ⃗B] - 1∕c ∂[ ⃗E]∕∂t ˳= 4π∕c [ ⃗j] ¦#
-               ∇ ⋅ [ ⃗E]\ ˳= 4πρ       ¦
- ∇ × [ ⃗E] + 1∕c ∂[ ⃗B]∕∂t ˳= [ ⃗0]      ¦
-               ∇ ⋅ [ ⃗B]\ ˳= 0         ˲
-,ˎˎ{#eq:max}
-
-where ˎ[ ⃗B], [ ⃗E], [ ⃗j]: ℝ⁴ → ℝ³ˎ – vector functions of the form
-ˎ(t,x,y,z) ↦ [ ⃗f](t,x,y,z), [ ⃗f] = (f_˹x˺, f_˹y˺, f_˹z˺)ˎ.
-```
-renders to:
-
-$$
-\begin{aligned}∇ × {\mathbf{B}} - \frac{1}{c} \frac{∂{\mathbf{E}}}{∂t} &= \frac{4π}{c} {\mathbf{j}}\\
-               ∇ ⋅ {\mathbf{E}}\  &= 4πρ       \\
- ∇ × {\mathbf{E}} + \frac{1}{c} \frac{∂{\mathbf{B}}}{∂t} &= {\mathbf{0}}      \\
-               ∇ ⋅ {\mathbf{B}}\  &= 0         \end{aligned}
-,$${\#eq:max}
-
-where ${\mathbf{B}},\,{\mathbf{E}},\,{\mathbf{j}}:\,ℝ^{4} → ℝ^{3}$ --
-vector functions of the form
-$(t,x,y,z) ↦ {\mathbf{f}}(t,x,y,z),\,{\mathbf{f}} = (f_{\mathrm{x}}, f_{\mathrm{y}}, f_{\mathrm{z}})$.
-
-(you can see it in the [PDF version of this documentation](sugartex.pdf?raw=true)).
-
-You can find more SugarTeX examples [**here**](https://github.com/kiwi0fruit/sugartex/tree/master/examples).
-
-
-## TODO
-
-* Add examples to every section,
+You can find SugarTeX examples [**in this document**](https://github.com/kiwi0fruit/sugartex/tree/master/examples) (SugarTeX code + rendered formulas).
