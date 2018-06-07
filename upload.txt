@@ -1,4 +1,4 @@
-# place your current conda version here:
-conda install -c defaults -c conda-forge "conda=4.3.31" twine
+conda install -c defaults -c conda-forge twine
+# go to this folder:
 python setup.py sdist
-twine upload dist/*
+twine upload dist/* --skip-existing
