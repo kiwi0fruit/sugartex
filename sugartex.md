@@ -89,14 +89,14 @@ pandoc -f json -o doc.md.md
 
 # Tweaking SugarTeX
 
-SugarTeX is written in python and has a tweakable architecture. As you can see in [this filter](https://github.com/kiwi0fruit/pandoctools/blob/master/pandoctools/filters/sugartex_kiwi.py) tweaks can be made in between:
+SugarTeX is written in python and has a tweakable architecture. As you can see in [this filter](scripts/sugartex_kiwi.py) tweaks can be made in between:
 ```py
 sugartex = SugarTeX(delay=True)
 ...
 sugartex.ready()
 ```
 
-Attributes of instance of `SugarTeX` class can be changed. See them in defining of `SugarTeX` class and in it's `__init__` method [here](https://github.com/kiwi0fruit/pandoctools/blob/master/pandoctools/sugartex/sugartex.py). List of attributes:
+Attributes of instance of `SugarTeX` class can be changed. See them in defining of `SugarTeX` class and in it's `__init__` method [here](sugartex/sugartex_filter.py). List of attributes:
 
 * `.brackets`
 * `.brackets_types`
