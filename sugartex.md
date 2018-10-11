@@ -91,7 +91,7 @@ pandoc -f json -o doc.md.md
 
 SugarTeX is written in python and has a tweakable architecture. As you can see in [this filter](scripts/sugartex_kiwi.py) tweaks can be made in between:
 ```py
-sugartex = SugarTeX(delay=True)
+sugartex = SugarTeX(ready=False)
 ...
 sugartex.ready()
 ```

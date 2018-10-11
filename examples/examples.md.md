@@ -49,7 +49,6 @@ nameInLink: False
 numberSections: False
 pairDelim: ','
 pandoctools:
-  out: '\*.md.md'
   profile: Kiwi
 rangeDelim: '\-'
 refDelim: ','

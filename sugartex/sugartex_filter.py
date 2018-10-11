@@ -1,7 +1,7 @@
 import re
 import copy
 from collections import OrderedDict
-from typing import Type, Callable
+from typing import Type, Callable, Iterable
 from itertools import chain
 
 
@@ -152,14 +152,13 @@ _default_pref = r'^|(?<=\n)|(?<=^[ ˱{])|(?<=[^\\][ ˱{])'   # language=PythonRe
 _default_postf = r'$|(?=\n)|(?<!\\)(?=[ ˲\}])'
 
 
-def _ops_regex(ops_) -> str:
-    """ops is a iterable of str"""
+def _ops_regex(ops_: Iterable[str]) -> str:
     ops = list(ops_)
     singles = re.escape(''.join(op for op in ops if len(op) == 1))  # language=PythonRegExp
     singles = [r'[{}]'.format(singles)] if (singles != '') else []
     longs = [op for op in ops if len(op) > 1]
     longs.sort(key=lambda s: -len(s))
-    longs = [re.escape(op) for op in longs]  # language=PythonRegExp
+    longs = [re.escape(op) for op in longs]
     return '|'.join(longs + singles)
 
 
@@ -171,7 +170,7 @@ def _search_regex(ops: dict, regex_pat: str):
     """
     custom_regexps = list(filter(None, [dic['regex'] for op, dic in ops.items() if 'regex' in dic]))
     op_names = [op for op, dic in ops.items() if 'regex' not in dic]
-    regex = [regex_pat.format(_ops_regex(op_names))] if len(op_names) > 0 else []  # language=PythonRegExp
+    regex = [regex_pat.format(_ops_regex(op_names))] if len(op_names) > 0 else []
     return re.compile('|'.join(custom_regexps + regex))
 
 
@@ -563,6 +562,7 @@ class NullOps:
     def fill(self):
         big_spec = [(op, {'pat': self.big_pat(self.big_ops[op], self.big_limits), 'regex': None})
                     for op in self.big_ops.keys()]
+        # noinspection PyTypeChecker
         big_spec[0][1]['regex'] = self.big_regex_pat.format(_ops_regex(self.big_ops.keys()),
                                                             _ops_regex(self.big_limits.keys()))
         self.ops = OrderedDict(
@@ -627,15 +627,19 @@ class SugarTeX:
     escapes = ['⋲', '›', '˺', '↕', 'ˌ']
     escapes_regex = None  # it's assigned later
 
-    def __init__(self, delay: bool=False):
+    def __init__(self, ready: bool=True):
         self.pref_un_ops = PrefUnOps()
         self.postf_un_ops = PostfUnOps()
         self.bin_centr_ops = BinCentrOps()
         self.null_ops = NullOps()
-        if not delay:
+
+        self.readied = False
+        if ready:
             self.ready()
 
     def ready(self):
+        self.readied = True
+
         self.bin_centr_ops.fill()
         self.postf_un_ops.fill()
         styles_postf = self.postf_un_ops.one_symbol_ops_str()
@@ -658,7 +662,7 @@ class SugarTeX:
     @staticmethod
     def _dict_replace(dic: dict or Type[OrderedDict], source: str) -> str:
         if len(dic) > 0 and source != '':
-            rep = {re.escape(key): val for key, val in dic.items()}  # language=PythonRegExp
+            rep = {re.escape(key): val for key, val in dic.items()}
             regex = re.compile(r'(?<!\\)(?:{})'.format("|".join(rep.keys())))
             return regex.sub(lambda m: rep[re.escape(m.group(0))], source)
         else:
@@ -825,9 +829,11 @@ class SugarTeX:
                     else:
                         term2 = string[match.end():rmatch.start()]
                 if loc == 'l':
+                    # noinspection PyUnboundLocalVariable
                     terms = list(lmatch.groups()) + [term1] + regex_terms[1:]
                     start, end = lmatch.start(), match.end()
                 elif loc == 'r':
+                    # noinspection PyUnboundLocalVariable
                     terms = regex_terms[1:] + [term2] + list(rmatch.groups())
                     start, end = match.start(), rmatch.end()
                 elif loc == 'lr':
@@ -862,6 +868,9 @@ class SugarTeX:
         :return: str
             New LaTeX string
         """
+        if not self.readied:
+            self.ready()
+
         # Brackets + simple pre replacements:
         src = self._dict_replace(self.simple_pre, src)
 

@@ -2,7 +2,6 @@
 eval: False
 pandoctools:
   profile: Kiwi
-  out: "*.md.md"
 ...
 
 ```

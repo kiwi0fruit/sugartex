@@ -2,13 +2,13 @@ import sys
 import panflute as pf
 from .sugartex_filter import SugarTeX
 
-sugartex = SugarTeX(delay=True)
+sugartex = SugarTeX(ready=False)
 
 
 def kiwi_hack():
     sugartex.mjx_hack()
-    sugartex.subscripts['ᵩ'] = 'ψ'  # Consolas font specific
-    sugartex.superscripts['ᵠ'] = 'ψ'  # Consolas font specific
+    # sugartex.subscripts['ᵩ'] = 'ψ'  # Consolas font specific
+    # sugartex.superscripts['ᵠ'] = 'ψ'  # Consolas font specific
 
 
 def action(elem, doc):

@@ -2,11 +2,11 @@
 import panflute as pf
 from sugartex import SugarTeX
 
-sugartex = SugarTeX(delay=True)
+sugartex = SugarTeX(ready=False)
 # Tuning SugarTeX options:
 sugartex.mjx_hack()
-sugartex.subscripts['ᵩ'] = 'ψ'  # Consolas font specific
-sugartex.superscripts['ᵠ'] = 'ψ'  # Consolas font specific
+# sugartex.subscripts['ᵩ'] = 'ψ'  # Consolas font specific
+# sugartex.superscripts['ᵠ'] = 'ψ'  # Consolas font specific
 # Applying SugarTeX options:
 sugartex.ready()
 
