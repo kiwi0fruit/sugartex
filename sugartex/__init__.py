@@ -1,7 +1,7 @@
 from .sugartex_filter import SugarTeX  # noqa
 from .pre_sugartex import (
     sugartex,
-    sugartex_replace_all, sugartex_replace_all as all,
+    sugartex_replace_all, sugartex_replace_all as stex,
     sugartex_preprocess, sugartex_preprocess as pre
 )  # noqa
 
