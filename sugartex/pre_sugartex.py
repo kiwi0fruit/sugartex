@@ -30,7 +30,7 @@ def sugartex_replace_all(string):
     """
     string = sugartex_preprocess(string).replace(r'\$', SESSION_ID)
     return re.sub(
-        r'(?<=$)[^$]*(?=$)',
+        r'(?<=\$)[^\$]*(?=\$)',
         lambda m: sugartex.replace(m.group(0)),
         string
     ).replace(SESSION_ID, r'\$')
