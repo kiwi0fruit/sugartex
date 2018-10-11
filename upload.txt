@@ -1,4 +1,0 @@
-conda install -c defaults -c conda-forge twine
-# go to this folder:
-python setup.py sdist
-twine upload dist/* --skip-existing

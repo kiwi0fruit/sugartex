@@ -7,6 +7,8 @@ markdown.
 
 See `SugarTeX
 documentation <https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md>`__.
+Examples of input to output conversion see in `this
+PDF <https://github.com/kiwi0fruit/sugartex/blob/master/examples/examples.pdf?raw=true>`__.
 
 I use Markdown with Python code blocks for document programming via
 `Pandoctools <https://github.com/kiwi0fruit/pandoctools>`__ (like
@@ -24,9 +26,6 @@ I am trying to incorporate LaTeX into .md using the Markdown Philosophy
 of “you should write something that’s readable as plain text, without
 compilation, also”.
 
-Examples of input to output conversion see in `this
-PDF <https://github.com/kiwi0fruit/sugartex/blob/master/examples/examples.pdf?raw=true>`__.
-
 Install
 -------
 
@@ -38,20 +37,20 @@ Or install:
 
 .. code:: sh
 
-    pip install sugartex
+   pip install sugartex
 
 If you use conda package manager (Anaconda/Miniconda) then you can
 install dependencies first:
 
 .. code:: sh
 
-    conda install -c defaults -c conda-forge "pip>=10.0.1" "pandoc>=2.2.1" pyyaml future shutilwhich
+   conda install -c defaults -c conda-forge "pip>=10.0.1" "pandoc>=2.2.1" pyyaml future shutilwhich
 
 Also can install from GitHub:
 
 .. code:: sh
 
-    pip install git+https://github.com/kiwi0fruit/sugartex.git
+   pip install git+https://github.com/kiwi0fruit/sugartex.git
 
 In this case you need to have installed
 `Git <https://git-scm.com/downloads>`__ available from command prompt.
@@ -84,7 +83,7 @@ fonts first. Recommended font fallback chains:
    -  `DejaVu Sans Mono monospacified for
       Consolas <https://github.com/kiwi0fruit/open-fonts/blob/master/Fonts/DejaVuSansMono_monospacified_for_Consolas.ttf?raw=true>`__
    -  `Symbola monospacified for
-      Consolas <https://github.com/cpitclaudel/monospacifier/blob/master/fonts/Symbola_monospacified_for_Consolas.ttf?raw=true>`__,
+      Consolas <https://github.com/kiwi0fruit/monospacifier/blob/d8beda67289bab66244ab0bd64f69bd4933e992c/fonts/Symbola_monospacified_for_Consolas.ttf?raw=true>`__,
 
 -  For **Roboto Mono**:
    ``'Open Mono', 'Noto Sans Mono', 'IBM Plex Mono', 'STI0 Two Mat0 monospacified for Robot0 Mono', 'DejaVu Sans Mono', 'Symbola monospacified for DejaVu Sans Mono', 'Noto Sans CJK TC', monospace``.
@@ -138,35 +137,35 @@ Windows:
 
 .. code:: bat
 
-    chcp 65001 > NUL
-    set PYTHONIOENCODING=utf-8
+   chcp 65001 > NUL
+   set PYTHONIOENCODING=utf-8
 
-    type doc.md | ^
-    pre-sugartex | ^
-    pandoc -f markdown --filter sugartex -o doc.md.md
+   type doc.md | ^
+   pre-sugartex | ^
+   pandoc -f markdown --filter sugartex -o doc.md.md
 
 Unix:
 
 .. code:: sh
 
-    export PYTHONIOENCODING=utf-8
+   export PYTHONIOENCODING=utf-8
 
-    cat doc.md | \
-    pre-sugartex | \
-    pandoc -f markdown --filter sugartex -o doc.md.md
+   cat doc.md | \
+   pre-sugartex | \
+   pandoc -f markdown --filter sugartex -o doc.md.md
 
 Or splitting Pandoc reader-writer:
 
 .. code:: bat
 
-    chcp 65001 > NUL
-    set PYTHONIOENCODING=utf-8
+   chcp 65001 > NUL
+   set PYTHONIOENCODING=utf-8
 
-    type doc.md | ^
-    pre-sugartex | ^
-    pandoc -f markdown -t json | ^
-    sugartex --kiwi | ^
-    pandoc -f json -o doc.md.md
+   type doc.md | ^
+   pre-sugartex | ^
+   pandoc -f markdown -t json | ^
+   sugartex --kiwi | ^
+   pandoc -f json -o doc.md.md
 
 `Panflute <https://github.com/sergiocorreia/panflute>`__ scripts are
 also installed so you can use it in default Panflute `automation
