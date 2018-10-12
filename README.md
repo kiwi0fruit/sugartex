@@ -8,7 +8,7 @@ I use Markdown with Python code blocks for document programming via [Pandoctools
 
 Both Python and Markdown are very readable languages. Unfortunately LaTeX is not like this. So I wrote SugaTeX extension+transpiler that is highly readable. In order to achieve this it heavily uses Unicode so that SugarTeX install instructions even have recommended monospace font fallback chains. And more: [SugarTeX Completions](#sugartex-completions-for-atom) Atom package helps write all that Unicode in a moment.
 
-I am trying to incorporate LaTeX into .md using the Markdown Philosophy of "you should write something that's readable as plain text, without compilation, also".
+I am trying to incorporate LaTeX into .md using the Markdown Philosophy of “you should write something that's readable as plain text, without compilation, also”.
 
 
 ## Install
