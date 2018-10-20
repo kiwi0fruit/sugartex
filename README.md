@@ -17,19 +17,20 @@ Install as part of [Pandoctools](https://github.com/kiwi0fruit/pandoctools) - co
 
 Or install:
 
-```sh
-pip install sugartex
+```bash
+pip install --progress-bar off sugartex
 ```
 
 If you use conda package manager (Anaconda/Miniconda) then you can install dependencies first:
 
-```sh
+```bash
 conda install -c defaults -c conda-forge "pip>=10.0.1" "pandoc>=2.2.1" pyyaml future shutilwhich
+pip install --progress-bar off sugartex
 ```
 
 Also can install from GitHub:
 
-```sh
+```bash
 pip install git+https://github.com/kiwi0fruit/sugartex.git
 ```
 In this case you need to have installed [Git](https://git-scm.com/downloads) available from command prompt.
