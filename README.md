@@ -28,6 +28,8 @@ conda install -c defaults -c conda-forge "pip>=10.0.1" "pandoc>=2.2.1" pyyaml fu
 pip install --progress-bar off sugartex
 ```
 
+if pip install fails try to change codepage: `chcp 1252`
+
 Also can install from GitHub:
 
 ```bash
