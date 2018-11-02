@@ -177,9 +177,9 @@ Use these shortcuts for fast Unicode typing in Atom:
 * `˱` ← `\_<`,
 * `˲` ← `\_>`,
 * `˱˲` ← `\_<>`,
-* `⟨` ← `\<\big`,
-* `⟩` ← `\>\big`,
-* `⟨⟩` ← `\<>\big`,
+* `⟨` ← `\<\`,
+* `⟩` ← `\>\`,
+* `⟨⟩` ← `\<>\`,
 * `⌊` ← `\lfloor`,
 * `⌋` ← `\rfloor`,
 * `⌈` ← `\lceil`,
@@ -260,7 +260,7 @@ Who knows what I was thinking about by adding them here instead of Regular expre
 
 ***SugarTeX Completions for Atom***:
 
-* `⢈` ← `\:\big`,
+* `⢈` ← `\:\`,
 * `⠰` ← `\:\small`,
 * `∑` ← `\sum`,
 * `∏` ← `\prod`,
@@ -363,9 +363,9 @@ SugarTeX finds non-escaped `⧼ *` first (for example) then searches for a place
 
 ***SugarTeX Completions for Atom***:
 
-* `⧼` ← `\<\big2`,
-* `⧽` ← `\>\big2`,
-* `⧼⧽` ← `\<>\big2`,
+* `⧼` ← `\<\\`,
+* `⧽` ← `\>\\`,
+* `⧼⧽` ← `\<>\\`,
 * `👻` ← `\ghost`,
 * `⎴` ← `\^^`,
 * `⎴` ← `\^]\rot`,
@@ -416,9 +416,9 @@ When combining **one-character** postfix unary operators with styles the order i
 * `⏞` ← `\^}\rot`,
 * `⏟` ← `\_}\rot`,
 * `ˍ` ← `\_`,
-* `⧼` ← `\<\big2`,
-* `⧽` ← `\>\big2`,
-* `⧼⧽` ← `\<>\big2`.
+* `⧼` ← `\<\\`,
+* `⧽` ← `\>\\`,
+* `⧼⧽` ← `\<>\\`.
 
 
 ## Center binary operators
