@@ -139,7 +139,7 @@ In SugarTeX the default escape character is `\`. But it's a special symbol in La
 
 ***SugarTeX Completions for Atom***:
 
-* `ˋ` ← <code>\\\`\\alt</code> (modifier letter grave accent).
+* `ˋ` ← <code>\\\`</code> (modifier letter grave accent).
 
 
 ## Brackets
@@ -656,7 +656,7 @@ Nothing. But can be tweaked.
 * `˲` ← `\_>`,
 * `˱˲` ← `\_<>`,
 * `ˍ` ← `\_`,
-* `ˋ` ← <code>\\\`\\alt</code> (modifier letter grave accent).
+* `ˋ` ← <code>\\\`</code> (modifier letter grave accent).
 * `↕` ← `\<->\rot`.
 
 
