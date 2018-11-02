@@ -308,7 +308,9 @@ List of available styles:
 * <code> ⃗</code> ← `\^->`,
 * `⠘` ← `\^:`,
 * `⠛` ← `\^::`,
-* `⠋` ← `\^:.\rot`.
+* `⠛` ← `\array`,
+* `⠋` ← `\^:.\rot`,
+* `⠋` ← `\matrix`.
 
 
 ### Styles with special brackets
@@ -326,7 +328,9 @@ List of available styles:
 * `‹` ← `\<`,
 * `›` ← `\>`,
 * `‹›` ← `\<>`,
-* `˹˺` ← `\^r\small`.
+* `‹›` ← `\text`,
+* `˹˺` ← `\^r\small`,
+* `˹˺` ← `\regular`.
 
 
 ### Greedy prefix unary operators
