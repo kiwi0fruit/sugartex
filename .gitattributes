@@ -1,1 +1,7 @@
+*      text       eol=lf
+*.*    text=auto  !eol
+*.bat  text       eol=crlf
+*.cmd  text       eol=crlf
+*.sh   text       eol=lf
+
 sugartex/_version.py export-subst
