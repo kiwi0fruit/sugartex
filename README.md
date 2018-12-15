@@ -94,14 +94,13 @@ pandoc -f markdown --filter sugartex -o doc.md.md
 
 Or splitting Pandoc reader-writer:
 
-```bat
-chcp 65001 > NUL
-set PYTHONIOENCODING=utf-8
+```sh
+export PYTHONIOENCODING=utf-8
 
-type doc.md | ^
-pre-sugartex | ^
-pandoc -f markdown -t json | ^
-sugartex --kiwi | ^
+cat doc.md | \
+pre-sugartex | \
+pandoc -f markdown -t json | \
+sugartex --kiwi | \
 pandoc -f json -o doc.md.md
 ```
 
