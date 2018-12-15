@@ -174,5 +174,5 @@ metadata <http://scorreia.com/software/panflute/guide.html#running-filters-autom
 or in it’s CLI wrapper from
 `pandoctools <https://github.com/kiwi0fruit/pandoctools>`__:
 
--  ``panfl sugartex_panfl --to markdown``,
--  ``panfl sugartex_kiwi -t markdown``.
+-  ``panfl sugartex/pf --to markdown``,
+-  ``panfl sugartex/pf_kiwi -t markdown``.

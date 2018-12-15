@@ -106,5 +106,5 @@ pandoc -f json -o doc.md.md
 
 [Panflute](https://github.com/sergiocorreia/panflute) scripts are also installed so you can use it in default Panflute [automation interface in metadata](http://scorreia.com/software/panflute/guide.html#running-filters-automatically) or in it's CLI wrapper from [pandoctools](https://github.com/kiwi0fruit/pandoctools):
 
-* `panfl sugartex_panfl --to markdown`,
-* `panfl sugartex_kiwi -t markdown`.
+* `panfl sugartex/pf --to markdown`,
+* `panfl sugartex/pf_kiwi -t markdown`.

@@ -50,8 +50,8 @@ setup(
             'pre-sugartex=sugartex.pre_sugartex:main',
         ],
     },
-    scripts = [
-        'scripts/sugartex_panfl.py',
-        'scripts/sugartex_kiwi.py',
-    ],
+    # scripts = [
+    #     'scripts/sugartex_panfl.py',
+    #     'scripts/sugartex_kiwi.py',
+    # ],
 )
