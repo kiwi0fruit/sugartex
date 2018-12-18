@@ -104,7 +104,7 @@ sugartex --kiwi | \
 pandoc -f json -o doc.md.md
 ```
 
-[Panflute](https://github.com/sergiocorreia/panflute) scripts are also installed so you can use it in default Panflute [automation interface in metadata](http://scorreia.com/software/panflute/guide.html#running-filters-automatically) or in recommend [panfl](https://github.com/kiwi0fruit/pandoctools/docs/panfl.md) CLI:
+[Panflute](https://github.com/sergiocorreia/panflute) scripts are also installed so you can use it in default Panflute [automation interface in metadata](http://scorreia.com/software/panflute/guide.html#running-filters-automatically) or in recommend [panfl](https://github.com/kiwi0fruit/pandoctools/blob/master/docs/panfl.md) CLI:
 
 * `panfl sugartex --to markdown`,
 * `panfl sugartex.kiwi -t markdown`.
