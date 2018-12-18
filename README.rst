@@ -35,20 +35,23 @@ interface and works out of the box.
 
 Or install:
 
-.. code:: sh
+.. code:: bash
 
    pip install sugartex
 
 If you use conda package manager (Anaconda/Miniconda) then you can
 install dependencies first:
 
-.. code:: sh
+.. code:: bash
 
    conda install -c defaults -c conda-forge "pip>=10.0.1" "pandoc>=2.2.1" pyyaml future shutilwhich
+   pip install sugartex
+
+if pip install fails try to change codepage: ``chcp 1252``
 
 Also can install from GitHub:
 
-.. code:: sh
+.. code:: bash
 
    pip install git+https://github.com/kiwi0fruit/sugartex.git
 
@@ -156,15 +159,14 @@ Unix:
 
 Or splitting Pandoc reader-writer:
 
-.. code:: bat
+.. code:: sh
 
-   chcp 65001 > NUL
-   set PYTHONIOENCODING=utf-8
+   export PYTHONIOENCODING=utf-8
 
-   type doc.md | ^
-   pre-sugartex | ^
-   pandoc -f markdown -t json | ^
-   sugartex --kiwi | ^
+   cat doc.md | \
+   pre-sugartex | \
+   pandoc -f markdown -t json | \
+   sugartex --kiwi | \
    pandoc -f json -o doc.md.md
 
 `Panflute <https://github.com/sergiocorreia/panflute>`__ scripts are
@@ -174,5 +176,5 @@ metadata <http://scorreia.com/software/panflute/guide.html#running-filters-autom
 or in it’s CLI wrapper from
 `pandoctools <https://github.com/kiwi0fruit/pandoctools>`__:
 
--  ``panfl sugartex/pf --to markdown``,
--  ``panfl sugartex/pf_kiwi -t markdown``.
+-  ``panfl sugartex --to markdown``,
+-  ``panfl sugartex.kiwi -t markdown``.

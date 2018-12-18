@@ -46,12 +46,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'sugartex=sugartex.sugartex_pandoc_filter:main',
+            'sugartex=sugartex.sugartex_pandoc_filter:cli',
             'pre-sugartex=sugartex.pre_sugartex:main',
         ],
     },
-    # scripts = [
-    #     'scripts/sugartex_panfl.py',
-    #     'scripts/sugartex_kiwi.py',
-    # ],
 )

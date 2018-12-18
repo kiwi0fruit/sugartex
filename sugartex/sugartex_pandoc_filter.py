@@ -16,23 +16,27 @@ def action(elem, doc):
         elem.text = sugartex.replace(elem.text)
 
 
-_help = '''sugartex reads from stdin and writes to stdout. Usage:
-`sugartex TO` - run Pandoc filter that iterates over math blocks,
-`sugartex kiwi` - same as above but with kiwi flavor,
-`sugartex --help` or `sugartex -h` - show this message and exit.
-'''
-
-
 def main(doc=None):
-    if len(sys.argv) > 1:
-        if sys.argv[1] == '--kiwi':
-            kiwi_hack()
-        elif sys.argv[1] == '--help' or sys.argv[1] == '-h':
-            print(_help)
-            return None
     sugartex.ready()
     return pf.run_filter(action, doc=doc)
 
 
-if __name__ == '__main__':
+_help = '''sugartex reads from stdin and writes to stdout. Usage:
+`sugartex TO` - run Pandoc filter that iterates over math blocks,
+`sugartex --kiwi` - same as above but with kiwi flavor,
+`sugartex --help` or `sugartex -h` - show this message and exit.
+'''
+
+
+def cli():
+    if len(sys.argv) > 1:
+        if sys.argv[1] == '--kiwi':
+            kiwi_hack()
+        elif sys.argv[1] in ('--help', '-h'):
+            print(_help)
+            return None
     main()
+
+
+if __name__ == '__main__':
+    cli()
