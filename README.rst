@@ -173,8 +173,9 @@ Or splitting Pandoc reader-writer:
 also installed so you can use it in default Panflute `automation
 interface in
 metadata <http://scorreia.com/software/panflute/guide.html#running-filters-automatically>`__
-or in it’s CLI wrapper from
-`pandoctools <https://github.com/kiwi0fruit/pandoctools>`__:
+or in recommend
+`panfl <https://github.com/kiwi0fruit/pandoctools/blob/master/docs/panfl.md>`__
+CLI:
 
 -  ``panfl sugartex --to markdown``,
 -  ``panfl sugartex.kiwi -t markdown``.
