@@ -37,31 +37,33 @@ See [PDF version of this documentation](sugartex.pdf?raw=true) (outdated!) - it 
 
 # Command line interfaces
 
-1. `sugartex`:
-  ```
-  Usage: sugartex [OPTIONS] [TO]
+1. `sugartex`:  
 
-    Reads from stdin and writes to stdout.
-    When no arguments or first arg is not from options then
-    run Pandoc filter that iterates over math blocks.
+   ```
+   Usage: sugartex [OPTIONS] [TO]
 
-  Options:
-    --kiwi   Same as above but with kiwi flavor,
-    --help   Show this message and exit.
-  ```
+     Reads from stdin and writes to stdout.
+     When no arguments or first arg is not from options then
+     run Pandoc filter that iterates over math blocks.
 
-2. `pre-sugartex`:
-  ```
-  Usage: pre-sugartex [OPTIONS]
+   Options:
+     --kiwi   Same as above but with kiwi flavor,
+     --help   Show this message and exit.
+   ```
 
-    Reads from stdin and writes to stdout.
-    When no options:  replace 'ˎ' with '$' only.
+2. `pre-sugartex`:  
 
-  Options:
-    --all    Full SugarTeX replace with regexp,
-    --kiwi   Same as above but with kiwi flavor,
-    --help   Show this message and exit.
-  ```
+   ```
+   Usage: pre-sugartex [OPTIONS]
+
+     Reads from stdin and writes to stdout.
+     When no options:  replace 'ˎ' with '$' only.
+
+   Options:
+     --all    Full SugarTeX replace with regexp,
+     --kiwi   Same as above but with kiwi flavor,
+     --help   Show this message and exit.
+   ```
 
 
 [Panflute](https://github.com/sergiocorreia/panflute) scripts are also installed so you can use it in default Panflute [automation interface in metadata](http://scorreia.com/software/panflute/guide.html#running-filters-automatically) or recommended [`panfl` CLI](https://github.com/kiwi0fruit/pandoctools/blob/master/docs/panfl.md):
