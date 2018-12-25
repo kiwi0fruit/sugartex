@@ -30,21 +30,24 @@ def sugartex_replace_all(string):
     """
     string = sugartex_preprocess(string).replace(r'\$', SESSION_ID)
     return re.sub(
-        r'(?<=\$)[^\$]*(?=\$)',
+        r'(?<=\$)[^$]*(?=\$)',
         lambda m: sugartex.replace(m.group(0)),
         string
     ).replace(SESSION_ID, r'\$')
 
 
-_help = '''pre-sugartex reads from stdin and writes to stdout. Usage:
-`pre-sugartex` - replace `ˎ` with `$` only,
-`pre-sugartex --all` - replace everything with regexp,
-`pre-sugartex --kiwi` - same as above but with kiwi flavor,
-`pre-sugartex --help` or `pre-sugartex -h` - show this message.
-'''
-
-
 def main():
+    """
+    Usage: pre-sugartex [OPTIONS]
+
+      Reads from stdin and writes to stdout.
+      When no options:  replace ``ˎ`` with ``$`` only.
+
+    Options:
+      --all    Full SugarTeX replace with regexp,
+      --kiwi   Same as above but with kiwi flavor,
+      --help   Show this message and exit.
+    """
     if len(sys.argv) > 1:
         arg1 = sys.argv[1]
         if arg1 == '--all' or arg1 == '--kiwi':
@@ -54,8 +57,8 @@ def main():
                 # sugartex.superscripts['ᵠ'] = 'ψ'  # Consolas font specific
             sugartex.ready()
             sys.stdout.write(sugartex_replace_all(sys.stdin.read()))
-        elif arg1 == '--help' or arg1 == '-h':
-            print(_help)
+        elif arg1.lower() == '--help':
+            print(str(main.__doc__).replace('\n    ', '\n').replace('``', "'"))
         else:
             raise Exception("Invalid first argument: " + arg1)
     else:

@@ -38,19 +38,36 @@ See [PDF version of this documentation](sugartex.pdf?raw=true) (outdated!) - it 
 # Command line interfaces
 
 1. `sugartex`:
-    * sugartex reads from stdin and writes to stdout,
-    * `sugartex TO` - run Pandoc filter that iterates over math blocks,
-    * `sugartex --kiwi` - same as above but with kiwi flavor,
+  ```
+  Usage: sugartex [OPTIONS] [TO]
+
+    Reads from stdin and writes to stdout.
+    When no arguments or first arg is not from options then
+    run Pandoc filter that iterates over math blocks.
+
+  Options:
+    --kiwi   Same as above but with kiwi flavor,
+    --help   Show this message and exit.
+  ```
+
 2. `pre-sugartex`:
-    * pre-sugartex reads from stdin and writes to stdout,
-    * `pre-sugartex` - replace `ˎ` with `$` only,
-    * `pre-sugartex --all` - replace everything with regexp,
-    * `pre-sugartex --kiwi` - same as above but with kiwi flavor.
+  ```
+  Usage: pre-sugartex [OPTIONS]
 
-[Panflute](https://github.com/sergiocorreia/panflute) scripts are also installed so you can use it in default Panflute [automation interface in metadata](http://scorreia.com/software/panflute/guide.html#running-filters-automatically) or in it's CLI wrapper from [pandoctools](https://github.com/kiwi0fruit/pandoctools):
+    Reads from stdin and writes to stdout.
+    When no options:  replace 'ˎ' with '$' only.
 
-* `panfl sugartex_panfl --to markdown`,
-* `panfl sugartex_kiwi -t markdown`.
+  Options:
+    --all    Full SugarTeX replace with regexp,
+    --kiwi   Same as above but with kiwi flavor,
+    --help   Show this message and exit.
+  ```
+
+
+[Panflute](https://github.com/sergiocorreia/panflute) scripts are also installed so you can use it in default Panflute [automation interface in metadata](http://scorreia.com/software/panflute/guide.html#running-filters-automatically) or recommended [`panfl` CLI](https://github.com/kiwi0fruit/pandoctools/blob/master/docs/panfl.md):
+
+* `panfl sugartex --to markdown`,
+* `panfl sugartex.kiwi -t markdown`.
 
 Examples. Windows:
 

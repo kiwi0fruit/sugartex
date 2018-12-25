@@ -11,6 +11,7 @@ def kiwi_hack():
     # sugartex.superscripts['ᵠ'] = 'ψ'  # Consolas font specific
 
 
+# noinspection PyUnusedLocal
 def action(elem, doc):
     if isinstance(elem, pf.Math):
         elem.text = sugartex.replace(elem.text)
@@ -21,19 +22,23 @@ def main(doc=None):
     return pf.run_filter(action, doc=doc)
 
 
-_help = '''sugartex reads from stdin and writes to stdout. Usage:
-`sugartex TO` - run Pandoc filter that iterates over math blocks,
-`sugartex --kiwi` - same as above but with kiwi flavor,
-`sugartex --help` or `sugartex -h` - show this message and exit.
-'''
-
-
 def cli():
+    """
+    Usage: sugartex [OPTIONS] [TO]
+
+      Reads from stdin and writes to stdout.
+      When no arguments or first arg is not from options then
+      run Pandoc filter that iterates over math blocks.
+
+    Options:
+      --kiwi   Same as above but with kiwi flavor,
+      --help   Show this message and exit.
+    """
     if len(sys.argv) > 1:
         if sys.argv[1] == '--kiwi':
             kiwi_hack()
-        elif sys.argv[1] in ('--help', '-h'):
-            print(_help)
+        elif sys.argv[1].lower() == '--help':
+            print(str(cli.__doc__).replace('\n    ', '\n'))
             return None
     main()
 
