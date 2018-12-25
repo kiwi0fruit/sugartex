@@ -26,9 +26,9 @@ def cli():
     """
     Usage: sugartex [OPTIONS] [TO]
 
-      Reads from stdin and writes to stdout.
-      When no arguments or first arg is not from options then
-      run Pandoc filter that iterates over math blocks.
+      Reads from stdin and writes to stdout. Can have single argument/option only.
+      When no args or the arg is not from options then run Pandoc SugarTeX filter
+      that iterates over math blocks.
 
     Options:
       --kiwi   Same as above but with kiwi flavor,
