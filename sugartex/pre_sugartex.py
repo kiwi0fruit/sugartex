@@ -41,7 +41,9 @@ def main():
     Usage: pre-sugartex [OPTIONS]
 
       Reads from stdin and writes to stdout.
-      When no options:  replace ``ˎ`` with ``$`` only.
+      When no options: only replace
+      U+02CE Modifier Letter Low Grave Accent
+      (that looks like low '`') with $
 
     Options:
       --all    Full SugarTeX replace with regexp,
@@ -58,7 +60,7 @@ def main():
             sugartex.ready()
             sys.stdout.write(sugartex_replace_all(sys.stdin.read()))
         elif arg1.lower() == '--help':
-            print(str(main.__doc__).replace('\n    ', '\n').replace('``', "'"))
+            print(str(main.__doc__).replace('\n    ', '\n'))
         else:
             raise Exception("Invalid first argument: " + arg1)
     else:
