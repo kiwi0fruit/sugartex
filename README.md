@@ -15,27 +15,17 @@ I am trying to incorporate LaTeX into .md using the Markdown Philosophy of “yo
 
 Install as part of [Pandoctools](https://github.com/kiwi0fruit/pandoctools) - convenient interface and works out of the box.
 
-Or install:
+Via conda:
+
+```bash
+conda install -c defaults -c conda-forge sugartex
+```
+
+Via pip:
 
 ```bash
 pip install sugartex
 ```
-
-If you use conda package manager (Anaconda/Miniconda) then you can install dependencies first:
-
-```bash
-conda install -c defaults -c conda-forge "pip>=10.0.1" "pandoc>=2.2.1" pyyaml future shutilwhich
-pip install sugartex
-```
-
-if pip install fails try to change codepage: `chcp 1252`
-
-Also can install from GitHub:
-
-```bash
-pip install git+https://github.com/kiwi0fruit/sugartex.git
-```
-In this case you need to have installed [Git](https://git-scm.com/downloads) available from command prompt.
 
 
 ### Atom editor with full Unicode support
