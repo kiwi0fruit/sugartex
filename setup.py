@@ -38,7 +38,7 @@ setup(
     # keywords='sample setuptools development',
     packages=find_packages(exclude=['docs', 'tests']),
     python_requires='>=3.6',
-    install_requires=['panflute'],
+    install_requires=['panflute>=1.11.2'],
 
     include_package_data=True,
     package_data={
