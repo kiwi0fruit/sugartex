@@ -6,7 +6,7 @@ import versioneer
 
 here = path.abspath(path.dirname(__file__))
 
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
@@ -16,6 +16,7 @@ setup(
 
     description='More readable LaTeX language extension and transcompiler to LaTeX',
     long_description=long_description,
+    long_description_content_type="text/markdown",
 
     url='https://github.com/kiwi0fruit/sugartex',
 
@@ -31,13 +32,12 @@ setup(
         'License :: OSI Approved :: MIT License',
 
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
 
     # keywords='sample setuptools development',
     packages=find_packages(exclude=['docs', 'tests']),
-
+    python_requires='>=3.6',
     install_requires=['panflute'],
 
     include_package_data=True,

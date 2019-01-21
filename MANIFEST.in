@@ -1,3 +1,4 @@
 include sugartex/*
 include versioneer.py
 include sugartex/_version.py
+include LICENSE
