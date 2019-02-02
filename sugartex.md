@@ -3,13 +3,13 @@ pandoctools:
   profile: Kiwi
   out: "*.pdf"
 eval: False
-...
+---
 
 # SugarTeX
 
 SugarTeX is a more readable LaTeX language extension and a transcompiler to LaTeX.
 
-See [PDF version of this documentation](sugartex.pdf?raw=true) (outdated!) - it nicely renders all Unicode characters and LaTeX example at the end. See original markdown version [here](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md).
+See [PDF version of this documentation](sugartex.pdf?raw=true) - it nicely renders all Unicode characters. See original Markdown version [here](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md).
 
 
 # Contents
