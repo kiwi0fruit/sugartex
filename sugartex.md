@@ -1,3 +1,10 @@
+---
+pandoctools:
+  profile: Kiwi
+  out: "*.pdf"
+eval: False
+...
+
 # SugarTeX
 
 SugarTeX is a more readable LaTeX language extension and a transcompiler to LaTeX.
@@ -41,11 +48,11 @@ See [PDF version of this documentation](sugartex.pdf?raw=true) (outdated!) - it 
 
    ```
    Usage: sugartex [OPTIONS] [TO]
-
+   
      Reads from stdin and writes to stdout. Can have single argument/option only.
      When no args or the arg is not from options then run Pandoc SugarTeX filter
      that iterates over math blocks.
-
+   
    Options:
      --kiwi   Same as above but with kiwi flavor,
      --help   Show this message and exit.
@@ -55,10 +62,12 @@ See [PDF version of this documentation](sugartex.pdf?raw=true) (outdated!) - it 
 
    ```
    Usage: pre-sugartex [OPTIONS]
-
+   
      Reads from stdin and writes to stdout.
-     When no options:  replace 'ˎ' with '$' only.
-
+     When no options: only replace
+     U+02CE Modifier Letter Low Grave Accent
+     (that looks like low '`') with $
+   
    Options:
      --all    Full SugarTeX replace with regexp,
      --kiwi   Same as above but with kiwi flavor,
@@ -73,7 +82,7 @@ See [PDF version of this documentation](sugartex.pdf?raw=true) (outdated!) - it 
 
 Examples. Windows:
 
-```bat
+```batch
 chcp 65001 > NUL
 set PYTHONIOENCODING=utf-8
 
@@ -84,7 +93,7 @@ pandoc -f markdown --filter sugartex -o doc.md.md
 
 Unix:
 
-```sh
+```bash
 export PYTHONIOENCODING=utf-8
 
 cat doc.md | \
@@ -94,7 +103,7 @@ pandoc -f markdown --filter sugartex -o doc.md.md
 
 Or splitting Pandoc reader-writer:
 
-```bat
+```batch
 chcp 65001 > NUL
 set PYTHONIOENCODING=utf-8
 
@@ -144,12 +153,12 @@ Many replacements use amsmath macros.
 
 ## Math delimiters
 
-In default use-case SugarTeX first preprocesses text replacing `ˎ` with `$` (modifier letter low grave accent U+02CE). Can be escaped: `\ˎ`
+In default use-case SugarTeX first preprocesses text replacing `\ˎ` with `$` (modifier letter low grave accent U+02CE). Can be escaped: `\\ˎ`
 
 ***SugarTeX Completions for Atom***:
 
-* `ˎ` ← <code>\\\_\`</code>,
-* `ˎ` ← `\$`.
+* `\ˎ` ← <code>\\\_\`</code>,
+* `\ˎ` ← `\$`.
 
 
 ## New escape character
@@ -357,10 +366,10 @@ List of available styles:
 * `{⋲ smth}` / `˱⋲ smth˲` → `\begin{cases} smth\end{cases}` (**piecewise**, element of with long horizontal stroke U+22F2).
 
 ```
-ˎˎ
+\ˎ\ˎ
   ˳|x|˳ = {⋲  x˳ ‹if› x≥0 ¦
              -x˳ ‹if› x<0 }
-ˎˎ
+\ˎ\ˎ
 ```
 
 SugarTeX finds non-escaped `{⋲` or `˱⋲` first then searches for non-escaped `}` or `˲` that is not inside `{}` or `˱˲` – SugarTeX counts opening and closing `{}˱˲` (`˱˲` would later be replaced with `{}` so both are counted together).
@@ -485,7 +494,8 @@ SugarTeX finds non-escaped binary operator separator `¦⠋` first then:
 * `˱˲` ← `\_<>`,
 * `¦` ← `\\`,
 * `¦` ← `\|/2`,
-* `⠋` ← `\^:.\rot`.
+* `⠋` ← `\^:.\rot`,
+* `⠋` ← `\matrix`.
 
 
 ### General fractions without bars
@@ -534,7 +544,7 @@ Arguments search algorithm is the same as for matrices (except it now does not h
 (Braille Pattern Dots-1245 U+281B).
 
 ```
-ˎ˳˳(˱a ˳b ¦⠛ᵗ c ˳d˲)˳˳ˎ
+\ˎ˳˳(˱a ˳b ¦⠛ᵗ c ˳d˲)˳˳\ˎ
 ```
 
 2) `˱smth1 ¦⠛ smth2˲` →  
@@ -555,10 +565,10 @@ Arguments search algorithm is the same as for matrices (except it now does not h
  `\begin{aligned}smth1¦smth2\end{aligned}`,
 
 ```
-ˎˎ
+\ˎ\ˎ
   ˳|x|˳ = ˳{˱ x˳ ‹if› x≥0  ¦#
              -x˳ ‹if› x<0  ˲ ˲˳
-ˎˎ
+\ˎ\ˎ
 ```
 
 4) `˱smth1 ¦˽ smth2˲` / `˱smth1 ¦⎵ smth2˲` →  
@@ -566,7 +576,7 @@ Arguments search algorithm is the same as for matrices (except it now does not h
 (modifier letter shelf U+02FD / bottom square bracket U+23B5)
 
 ```
-ˎˎ ∑ⁿˍ{0≤i≤N ¦˽ 0≤j≤M} (ij)³ ˎˎ
+\ˎ\ˎ ∑ⁿˍ{0≤i≤N ¦˽ 0≤j≤M} (ij)³ \ˎ\ˎ
 ```
 
 5) `˱smth1 ¦˽ˡ smth2˲` / `˱smth1 ¦⎵ˡ smth2˲` →  
@@ -574,7 +584,7 @@ Arguments search algorithm is the same as for matrices (except it now does not h
 (modifier letter shelf U+02FD / bottom square bracket U+23B5)
 
 ```
-ˎˎ ∑ⁿˍ{0≤i≤N ¦˽ˡ 0≤j≤M} (ij)³ ˎˎ
+\ˎ\ˎ ∑ⁿˍ{0≤i≤N ¦˽ˡ 0≤j≤M} (ij)³ \ˎ\ˎ
 ```
 
 Instead of `ˡ` (left) it can also be `ᶜ` (center) or `ʳ` (right).
