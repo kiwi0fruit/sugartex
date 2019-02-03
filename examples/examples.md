@@ -2,7 +2,9 @@
 eval: False
 pandoctools:
   profile: Kiwi
-...
+  out: "*.*.md"
+  # out: "*.pdf"
+---
 
 ```
 See @eq:max.

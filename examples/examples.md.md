@@ -2,12 +2,27 @@
 autoEqnLabels: False
 autoSectionLabels: False
 ccsDelim: ','
-ccsLabelSep: ' ---'
+ccsLabelSep: '---'
 ccsTemplate: $$i$$$$ccsLabelSep$$$$t$$
 chapDelim: '.'
 chapters: False
 chaptersDepth: 1
 codeBlockCaptions: False
+comments-map:
+  js:
+  - '//'
+  - '/\*'
+  - '\*/'
+  py:
+  - '\#'
+  - ''''''''
+  - ''''''''
+  - '\"\"\"'
+  - '\"\"\"'
+  r:
+  - '\#'
+  - '\"'
+  - '\"'
 cref: False
 crossrefYaml: 'pandoc-crossref.yaml'
 eqnLabels: arabic
@@ -24,7 +39,7 @@ figPrefixTemplate: $$p$$ $$i$$
 figureTemplate: $$figureTitle$$ $$i$$$$titleDelim$$ $$t$$
 figureTitle: Figure
 kernels-map:
-  py: python
+  py: research
   r: ir
 lastDelim: ','
 linkReferences: False
@@ -49,10 +64,12 @@ nameInLink: False
 numberSections: False
 pairDelim: ','
 pandoctools:
+  out: '*.*.md'
   profile: Kiwi
 rangeDelim: '\-'
 refDelim: ','
 refIndexTemplate: $$i$$$$suf$$
+secHeaderTemplate: $$i$$$$secHeaderDelim$$$$t$$
 secLabels: arabic
 secPrefix:
 - 'sec.'
@@ -90,9 +107,9 @@ titleDelim: ':'
 
 See eq. 1. [$$
 \begin{aligned}∇ × {\mathbf{B}} - \frac{1}{c} \frac{∂{\mathbf{E}}}{∂t} &= \frac{4π}{c} {\mathbf{j}}\\
-               ∇ ⋅ {\mathbf{E}}\  &= 4πρ       \\
+               ∇ ⋅ {\mathbf{E}}\ &= 4πρ       \\
  ∇ × {\mathbf{E}} + \frac{1}{c} \frac{∂{\mathbf{B}}}{∂t} &= {\mathbf{0}}      \\
-               ∇ ⋅ {\mathbf{B}}\  &= 0         \end{aligned}
+               ∇ ⋅ {\mathbf{B}}\ &= 0         \end{aligned}
 ,\qquad(1)$$]{#eq:max}
 
 where ${\mathbf{B}},\,{\mathbf{E}},\,{\mathbf{j}}:\,ℝ^{4} → ℝ^{3}$ --
@@ -212,4 +229,3 @@ styles should have priority!):
     ˎˎ f: x →⎴‹arrow map› ˽i x² ˎˎ
 
 $$ f: x \xrightarrow{‹arrow} \underset{i}{map›} x^{2} $$
-
