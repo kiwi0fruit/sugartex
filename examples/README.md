@@ -7,9 +7,9 @@ Was created via this [Markdown source](examples.md?raw=true). You can find outpu
 ```py
 import IPython.display as ds
 import math
-import sugartex as st
+from sugartex import stex
 
-ds.Markdown(st.stex(f'''
+ds.Markdown(stex(f'''
 
 Some **dynamic** Markdown text with SugarTeX formula: ˎα^˱{math.pi:1.4f}˲ˎ.
 
