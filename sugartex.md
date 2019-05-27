@@ -117,7 +117,7 @@ pandoc -f json -o doc.md.md
 
 # Tweaking SugarTeX
 
-SugarTeX is written in python and has a tweakable architecture. As you can see in [this filter](scripts/sugartex_kiwi.py) tweaks can be made in between:
+SugarTeX is written in python and has a tweakable architecture. As you can see in [this filter](sugartex/sugartex_pandoc_filter.py) tweaks can be made in between:
 ```py
 sugartex = SugarTeX(ready=False)
 ...
@@ -157,17 +157,17 @@ In default use-case SugarTeX first preprocesses text replacing `\ˎ` with `$` (m
 
 ***SugarTeX Completions for Atom***:
 
-* `\ˎ` ← <code>\\\_\`</code>,
+* `\ˎ` ← `` \_` ``,
 * `\ˎ` ← `\$`.
 
 
 ## New escape character
 
-In SugarTeX the default escape character is `\`. But it's a special symbol in LaTeX. In cases when `\` would work as escaping character you can use <code>\`</code> or `ˋ` (modifier letter grave accent). At the end it will be replaced with `\`.
+In SugarTeX the default escape character is `\`. But it's a special symbol in LaTeX. In cases when `\` would work as escaping character you can use `` ` `` or `ˋ` (modifier letter grave accent). At the end it will be replaced with `\`.
 
 ***SugarTeX Completions for Atom***:
 
-* `ˋ` ← <code>\\\`</code> (modifier letter grave accent).
+* `ˋ` ← `` \` `` (modifier letter grave accent).
 
 
 ## Brackets
@@ -288,7 +288,7 @@ Who knows what I was thinking about by adding them here instead of Regular expre
 
 ***SugarTeX Completions for Atom***:
 
-* `⢈` ← `\:\`,
+* `⢈` ← `\:`,
 * `⠰` ← `\:\small`,
 * `∑` ← `\sum`,
 * `∏` ← `\prod`,
@@ -337,7 +337,7 @@ List of available styles:
 * `⠘` ← `\^:`,
 * `⠛` ← `\^::`,
 * `⠛` ← `\array`,
-* `⠋` ← `\^:.\rot`,
+* `⠋` ← `\^:.\rot-90`,
 * `⠋` ← `\matrix`.
 
 
@@ -395,12 +395,12 @@ SugarTeX finds non-escaped `⧼ *` first (for example) then searches for a place
 
 ***SugarTeX Completions for Atom***:
 
-* `⧼` ← `\<\\`,
-* `⧽` ← `\>\\`,
-* `⧼⧽` ← `\<>\\`,
+* `⧼` ← `\<\alt2`,
+* `⧽` ← `\>\alt2`,
+* `⧼⧽` ← `\<>\alt2`,
 * `👻` ← `\ghost`,
 * `⎴` ← `\^^`,
-* `⎴` ← `\^]\rot`,
+* `⎴` ← `\^]\rot90`,
 * `→` ← `\->`,
 * `←` ← `\<-`.
 
@@ -445,12 +445,12 @@ When combining **one-character** postfix unary operators with styles the order i
 * `‾` ← `\^_` (overline),
 * `˙` ← `\^.`,
 * `¨` ← `\^..`,
-* `⏞` ← `\^}\rot`,
-* `⏟` ← `\_}\rot`,
+* `⏞` ← `\^}\rot90`,
+* `⏟` ← `\_}\rot-90`,
 * `ˍ` ← `\_`,
-* `⧼` ← `\<\\`,
-* `⧽` ← `\>\\`,
-* `⧼⧽` ← `\<>\\`.
+* `⧼` ← `\<\alt2`,
+* `⧽` ← `\>\alt2`,
+* `⧼⧽` ← `\<>\alt2`.
 
 
 ## Center binary operators
@@ -493,8 +493,8 @@ SugarTeX finds non-escaped binary operator separator `¦⠋` first then:
 * `˲` ← `\_>`,
 * `˱˲` ← `\_<>`,
 * `¦` ← `\\`,
-* `¦` ← `\|/2`,
-* `⠋` ← `\^:.\rot`,
+* `¦` ← `\--\rot90`,
+* `⠋` ← `\^:.\rot-90`,
 * `⠋` ← `\matrix`.
 
 
@@ -531,7 +531,7 @@ Arguments search algorithm is the same as for matrices.
 * `˲` ← `\_>`,
 * `˱˲` ← `\_<>`,
 * `¦` ← `\\`,
-* `¦` ← `\|/2`,
+* `¦` ← `\--\rot90`,
 * `⠘` ← `\^:`.
 
 
@@ -552,13 +552,13 @@ Arguments search algorithm is the same as for matrices (except it now does not h
 (Braille Pattern Dots-1245 U+281B).
 
 ```
-ˎˎ
+\ˎ\ˎ
 ˳[˱                        ˱cccc|c˲
     x₁₁ ˳x₁₂ ˳x₁₃ ˳… ˳x₁ₙ  ¦⠛
     x₂₁ ˳x₂₂ ˳x₂₃ ˳… ˳x₂ₙ  ¦
      ⋮  ˳ ⋮  ˳ ⋮  ˳⋱ ˳ ⋮   ¦
     xₚ₁ ˳xₚ₂ ˳xₚ₃ ˳… ˳xₚₙ  ˲]˳
-ˎˎ
+\ˎ\ˎ
 ```
 
 3) `˱smth1 ¦# smth2˲` →  
@@ -593,10 +593,10 @@ Instead of `ˡ` (left) it can also be `ᶜ` (center) or `ʳ` (right).
 
 * `⠛` ← `\^::`,
 * `˽` ← `\__`,
-* `˽` ← `\_]\rot`,
-* `⎵` ← `\_]\rot2`,
+* `˽` ← `\_]\rot-90`,
+* `⎵` ← `\_]\rot-90\alt`,
 * `¦` ← `\\`,
-* `¦` ← `\|/2`.
+* `¦` ← `\--\rot90`.
 
 
 ### Standard center binary operators
@@ -637,14 +637,14 @@ SugarTeX finds non-escaped binary operator separator (like `∕`) first then:
 ***SugarTeX Completions for Atom***:
 
 * `˽` ← `\__`,
-* `˽` ← `\_]\rot`,
-* `⎵` ← `\_]\rot2`,
+* `˽` ← `\_]\rot-90`,
+* `⎵` ← `\_]\rot-90\alt`,
 * `⎴` ← `\^^`,
-* `⎴` ← `\^]\rot`,
+* `⎴` ← `\^]\rot90`,
 * `∕` ← `\/`,
 * `√` ← `\^1/2`,
 * `¦` ← `\\`,
-* `¦` ← `\|/2`.
+* `¦` ← `\--\rot90`.
 
 
 ## Regular expressions loop replacements
@@ -663,7 +663,7 @@ Nothing. But can be tweaked.
 * `˳` → `&` (modifier letter low ring U+02F3, this should be after brackets and other `˳` replacements),
 * `˱` → `{` and `˲` → `}` (modifier letter low left/right arrowhead U+02F1/U+02F2),
 * `ˍ` → `_` (modifier letter low macron U+02CD),
-* <code>\`</code> → `\`,
+* `` ` `` → `\`,
 * `ˋ` → `\` (modifier letter grave accent U+02CB),
 * `↕^{d}` → `\displaystyle` (up down arrow U+2195),
 * `↕^{t}` → `\textstyle`,
@@ -678,15 +678,15 @@ Nothing. But can be tweaked.
 ***SugarTeX Completions for Atom***:
 
 * `¦` ← `\\`,
-* `¦` ← `\|/2`,
+* `¦` ← `\--\rot90`,
 * `˳` ← `\&`,
 * `˳` ← `\_o\small`,
 * `˱` ← `\_<`,
 * `˲` ← `\_>`,
 * `˱˲` ← `\_<>`,
 * `ˍ` ← `\_`,
-* `ˋ` ← <code>\\\`</code> (modifier letter grave accent).
-* `↕` ← `\<->\rot`.
+* `ˋ` ← `` \` `` (modifier letter grave accent).
+* `↕` ← `\<->\rot90`.
 
 
 ## Escapable characters

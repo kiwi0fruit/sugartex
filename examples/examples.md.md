@@ -21,8 +21,14 @@ comments-map:
   - '\"\"\"'
   r:
   - '\#'
+  - ''''
+  - ''''
   - '\"'
   - '\"'
+  ts:
+  - '//'
+  - '/\*'
+  - '\*/'
 cref: False
 crossrefYaml: 'pandoc-crossref.yaml'
 eqnLabels: arabic
@@ -39,7 +45,7 @@ figPrefixTemplate: $$p$$ $$i$$
 figureTemplate: $$figureTitle$$ $$i$$$$titleDelim$$ $$t$$
 figureTitle: Figure
 kernels-map:
-  py: research
+  py: python3
   r: ir
 lastDelim: ','
 linkReferences: False
@@ -118,14 +124,43 @@ $(t,x,y,z) ↦ {\mathbf{f}}(t,x,y,z),\,{\mathbf{f}} = (f_{\mathrm{x}}, f_{\mathr
 
 ------------------------------------------------------------------------
 
+    See @eq:max2.
+    ˎˎ
+    ˱∇ × 𝐁 - 1∕c ∂𝐄∕∂t ˳= 4π∕c 𝐣 ¦#
+                ∇ ⋅ 𝐄\ ˳= 4πρ    ¦
+     ∇ × 𝐄 + 1∕c ∂𝐁∕∂t ˳= 𝟎      ¦
+                ∇ ⋅ 𝐁\ ˳= 0      ˲
+    ,ˎˎ{#eq:max2}
+
+    where ˎ𝐁, 𝐄, 𝐣: ℝ⁴ → ℝ³ˎ – vector functions of the form
+    ˎ(t,x,y,z) ↦ 𝐟(t,x,y,z), 𝐟 = (f_˹x˺, f_˹y˺, f_˹z˺)ˎ.
+
+See eq. 2. [$$
+\begin{aligned}∇ × 𝐁 - \frac{1}{c} \frac{∂𝐄}{∂t} &= \frac{4π}{c} 𝐣\\
+            ∇ ⋅ 𝐄\ &= 4πρ    \\
+ ∇ × 𝐄 + \frac{1}{c} \frac{∂𝐁}{∂t} &= 𝟎      \\
+            ∇ ⋅ 𝐁\ &= 0      \end{aligned}
+,\qquad(2)$$]{#eq:max2}
+
+where $𝐁,\,𝐄,\,𝐣:\,ℝ^{4} → ℝ^{3}$ -- vector functions of the form
+$(t,x,y,z) ↦ 𝐟(t,x,y,z),\,𝐟 = (f_{\mathrm{x}}, f_{\mathrm{y}}, f_{\mathrm{z}})$.
+
+------------------------------------------------------------------------
+
     ˎˎ [⠋A] = [⠋B]˹ᵀ˺ [⠋C] [⠋B] ˎˎ
+
+    ˎˎ 𝐀 = 𝐁˹ᵀ˺𝐂 𝐁 ˎˎ
+
+$$ {\mathbf{A}} = {\mathbf{B}}^{{\mathrm{T}}} {\mathbf{C}}\,{\mathbf{B}} $$
+
+$$ 𝐀 = 𝐁^{{\mathrm{T}}}𝐂\,𝐁 $$
+
     ˎˎ
     ˱[ x₁₁ ˳x₁₂ ˳x₁₃ ˳… ˳x₁ₙ ¦⠋
        x₂₁ ˳x₂₂ ˳x₂₃ ˳… ˳x₂ₙ ¦
         ⋮  ˳ ⋮  ˳ ⋮  ˳⋱ ˳ ⋮  ¦
        xₚ₁ ˳xₚ₂ ˳xₚ₃ ˳… ˳xₚₙ ]˲ ˎˎ
 
-$$ {\mathbf{A}} = {\mathbf{B}}^{{\mathrm{T}}} {\mathbf{C}}\,{\mathbf{B}} $$
 $$
 \begin{bmatrix} x_{11} &x_{12} &x_{13} &… &x_{1n}\\
    x_{21} &x_{22} &x_{23} &… &x_{2n} \\
