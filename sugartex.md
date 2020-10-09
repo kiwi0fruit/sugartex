@@ -40,6 +40,7 @@ See [PDF version of this documentation](sugartex.pdf?raw=true) - it nicely rende
     * [Simple post-replacements](#simple-post-replacements)
     * [Escapable characters](#escapable-characters)
 * [Examples](#examples)
+* [Caveats of SugarTeX to docx conversion with free software only](#caveats-of-sugartex-to-docx-conversion-with-free-software-only)
 
 
 # Command line interfaces
@@ -710,3 +711,8 @@ are escapable with `\`.
 # Examples
 
 You can find SugarTeX examples [**in this document**](https://github.com/kiwi0fruit/sugartex/tree/master/examples) (SugarTeX code + rendered formulas).
+
+
+# Caveats of SugarTeX to docx conversion with free software only
+
+[Math support in pandoc](https://github.com/kiwi0fruit/open-fonts/blob/master/language_variants_and_math_support.md#pandoc).
