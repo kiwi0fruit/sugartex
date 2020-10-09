@@ -42,7 +42,7 @@ Install [SugarTeX Completions](https://atom.io/packages/sugartex-completions) pa
 In the [SugarTeX documentation](https://github.com/kiwi0fruit/sugartex/blob/master/sugartex.md) appropriate shortcuts for SugarTeX Completions for Atom are given.
 
 
-### SugarTeX to docx conversion with free software only
+### Caveats of SugarTeX to docx conversion with free software only
 
 [Math support in pandoc](https://github.com/kiwi0fruit/open-fonts/blob/master/language_variants_and_math_support.md#pandoc).
 
