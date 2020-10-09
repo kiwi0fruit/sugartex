@@ -49,23 +49,28 @@ Example of input to output conversion is at the end of [this PDF].
 Windows:
 
 ```bat
+@echo off
 chcp 65001 > NUL
 set PYTHONIOENCODING=utf-8
+set PYTHONUTF8=1
 
 type doc.md | ^
 pre-sugartex | ^
 pandoc -f markdown --filter sugartex -o doc.md.md
 ```
 
-Unix:
+Unix (`convert` bash script to use like `./convert doc.md`):
 
-```sh
+```bash
+#!/bin/bash
 export PYTHONIOENCODING=utf-8
+export PYTHONUTF8=1
 
-cat doc.md | \
+cat "$@" | \
 pre-sugartex | \
-pandoc -f markdown --filter sugartex -o doc.md.md
+pandoc -f markdown --filter sugartex -o "$@.md"
 ```
+(or `pandoc -f markdown --filter sugartex --to docx+styles -o "$@.docx"`)
 
 Or splitting Pandoc reader-writer:
 
