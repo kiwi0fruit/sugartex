@@ -164,7 +164,7 @@ In default use-case SugarTeX first preprocesses text replacing `\ˎ` with `$` (m
 
 ## New escape character
 
-In SugarTeX the default escape character is `\`. But it's a special symbol in LaTeX. In cases when `\` would work as escaping character you can use `` ` `` or `ˋ` (modifier letter grave accent). At the end it will be replaced with `\`.
+In SugarTeX the default escape character is `\`. But it's a special symbol in LaTeX. In cases when `\` would work as escaping character you can use `` ` `` or `ˋ` (modifier letter grave accent). At the end it will be replaced with `\`. Note that `` ` `` and `ˋ` **won't** work as escape characters.
 
 ***SugarTeX Completions for Atom***:
 
