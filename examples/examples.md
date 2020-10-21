@@ -9,14 +9,14 @@ pandoctools:
 ```
 See @eq:max.
 \ˎ\ˎ
-˱∇ × [ ⃗B] - 1∕c ∂[ ⃗E]∕∂t ˳= 4π∕c [ ⃗j] ¦#
-               ∇ ⋅ [ ⃗E]\ ˳= 4πρ       ¦
- ∇ × [ ⃗E] + 1∕c ∂[ ⃗B]∕∂t ˳= [ ⃗0]      ¦
-               ∇ ⋅ [ ⃗B]\ ˳= 0         ˲
+˱∇ × [⠘B] - 1∕c ∂[⠘E]∕∂t ˳= 4π∕c [⠘j] ¦#
+               ∇ ⋅ [⠘E]\ ˳= 4πρ       ¦
+ ∇ × [⠘E] + 1∕c ∂[⠘B]∕∂t ˳= [⠘0]      ¦
+               ∇ ⋅ [⠘B]\ ˳= 0         ˲
 ,\ˎ\ˎ{#eq:max}
 
-where \ˎ[ ⃗B], [ ⃗E], [ ⃗j]: ℝ⁴ → ℝ³\ˎ – vector functions of the form
-\ˎ(t,x,y,z) ↦ [ ⃗f](t,x,y,z), [ ⃗f] = (f_˹x˺, f_˹y˺, f_˹z˺)\ˎ.
+where \ˎ[⠘B], [⠘E], [⠘j]: ℝ⁴ → ℝ³\ˎ – vector functions of the form
+\ˎ(t,x,y,z) ↦ [⠘f](t,x,y,z), [⠘f] = (f_˹x˺, f_˹y˺, f_˹z˺)\ˎ.
 ```
 See @eq:max.
 ˎˎ
@@ -26,8 +26,8 @@ See @eq:max.
                ∇ ⋅ [ ⃗B]\ ˳= 0         ˲
 ,ˎˎ{#eq:max}
 
-where ˎ[ ⃗B], [ ⃗E], [ ⃗j]: ℝ⁴ → ℝ³ˎ – vector functions of the form
-ˎ(t,x,y,z) ↦ [ ⃗f](t,x,y,z), [ ⃗f] = (f_˹x˺, f_˹y˺, f_˹z˺)ˎ.
+where ˎ[⠘B], [⠘E], [⠘j]: ℝ⁴ → ℝ³ˎ – vector functions of the form
+ˎ(t,x,y,z) ↦ [⠘f](t,x,y,z), [⠘f] = (f_˹x˺, f_˹y˺, f_˹z˺)ˎ.
 
 ----
 
