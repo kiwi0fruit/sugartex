@@ -175,7 +175,7 @@ $$
            ⋮     ¦
        ax_{N-1} + by_{N-1} ]˲
     }¦
-    ˋB = a[ ⃗x] + b[ ⃗y] ˎˎ
+    ˋB = a[⠘x] + b[⠘y] ˎˎ
 
 $$ \def\B{
 \begin{bmatrix} ax_{0} + by_{1}\\
