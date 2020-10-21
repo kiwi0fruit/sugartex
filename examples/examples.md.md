@@ -102,14 +102,14 @@ titleDelim: ':'
 
     See @eq:max.
     ˎˎ
-    ˱∇ × [ ⃗B] - 1∕c ∂[ ⃗E]∕∂t ˳= 4π∕c [ ⃗j] ¦#
-                   ∇ ⋅ [ ⃗E]\ ˳= 4πρ       ¦
-     ∇ × [ ⃗E] + 1∕c ∂[ ⃗B]∕∂t ˳= [ ⃗0]      ¦
-                   ∇ ⋅ [ ⃗B]\ ˳= 0         ˲
+    ˱∇ × [⠘B] - 1∕c ∂[⠘E]∕∂t ˳= 4π∕c [⠘j] ¦#
+                   ∇ ⋅ [⠘E]\ ˳= 4πρ       ¦
+     ∇ × [⠘E] + 1∕c ∂[⠘B]∕∂t ˳= [⠘0]      ¦
+                   ∇ ⋅ [⠘B]\ ˳= 0         ˲
     ,ˎˎ{#eq:max}
 
-    where ˎ[ ⃗B], [ ⃗E], [ ⃗j]: ℝ⁴ → ℝ³ˎ – vector functions of the form
-    ˎ(t,x,y,z) ↦ [ ⃗f](t,x,y,z), [ ⃗f] = (f_˹x˺, f_˹y˺, f_˹z˺)ˎ.
+    where ˎ[⠘B], [⠘E], [⠘j]: ℝ⁴ → ℝ³ˎ – vector functions of the form
+    ˎ(t,x,y,z) ↦ [⠘f](t,x,y,z), [⠘f] = (f_˹x˺, f_˹y˺, f_˹z˺)ˎ.
 
 See eq. 1. [$$
 \begin{aligned}∇ × {\mathbf{B}} - \frac{1}{c} \frac{∂{\mathbf{E}}}{∂t} &= \frac{4π}{c} {\mathbf{j}}\\
